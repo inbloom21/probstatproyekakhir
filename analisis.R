@@ -67,20 +67,19 @@ print(hasil_akhir)
 
 
 
-# 1. Distribusi Variabel Kemiskinan
+#Distribusi Variabel Kemiskinan
 hist(data_bersih$kemiskinan, probability = TRUE, 
      main = "Distribusi Probabilitas Kemiskinan", 
      xlab = "Tingkat Kemiskinan (%)", col = "lightblue", border = "white")
 lines(density(data_bersih$kemiskinan), col = "red", lwd = 2)
 
-# 2. Distribusi Variabel Rata-rata Lama Sekolah
+#Distribusi Variabel Rata-rata Lama Sekolah
 hist(data_bersih$rata_lama_sekolah, probability = TRUE, 
      main = "Distribusi Probabilitas Rata-rata Lama Sekolah", 
      xlab = "Lama Sekolah (Tahun)", col = "lightgreen", border = "white")
 lines(density(data_bersih$rata_lama_sekolah), col = "red", lwd = 2)
 
 
-# --- TAMBAHAN DISTRIBUSI: Q-Q PLOT UNTUK UJI NORMALITAS ---
 
 # Jika titik-titik mengikuti garis merah, maka data berdistribusi normal
 qqnorm(data_bersih$kemiskinan, main = "Q-Q Plot Variabel Kemiskinan")
