@@ -3,3 +3,24 @@ title: "laporan"
 output: html_document
 ---
 
+# BAB I PENDAHULUAN
+___
+
+# BAB II METODOLOGI
+___
+
+# BAB III HASIL DAN PEMBAHASAN
+___
+## 3.1 Statistika Deskriptif
+## 3.2 *Missing Value*
+## 3.3 *Outlier*
+## 3.4 Visualisasi
+## 3.5 Distribusi Data
+## 3.6 Korelasi
+## 3.7 Interpretasi
+
+# BAB IV KESIMPULAN
+___
+
+# LAMPIRAN
+___
