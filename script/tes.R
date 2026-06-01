@@ -128,9 +128,9 @@ data %>%
   select(kemiskinan, pdrb_perkapita) %>%
   ggplot(aes(kemiskinan, scale(pdrb_perkapita)))+
   geom_point()+
-  labs(x="Pengangguran",
+  labs(x="kemiskinan",
        y="pdrb_perkapita",
-       title = "Pengaruh pengangguran terhadap pdrb_perkapita")
+       title = "Pengaruh kemiskinan terhadap pdrb_perkapita")
 
 
 
