@@ -80,4 +80,3 @@ batas_bawah <- quantile(data$rata_lama_sekolah, 0.25) - (1.5 * iqr_datalamasekol
 batas_atas <- quantile(data$rata_lama_sekolah, 0.75) + (1.5 * iqr_datalamasekolah)
 data <- data %>%
   filter(rata_lama_sekolah >= batas_bawah & rata_lama_sekolah <= batas_atas)
->>>>>>> f35974eb7f516ac452777f402678a236ac72228d
