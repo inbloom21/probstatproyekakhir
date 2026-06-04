@@ -369,9 +369,21 @@ display: none;
 </div>
 <div id="missing-value" class="section level2">
 <h2>3.2 <em>Missing Value</em></h2>
+<p>Berdasarkan pemeriksaan awal, ditemukan adanya data yang hilang pada
+beberapa variabel. Untuk mengatasi hal ini tanpa mengurangi ukuran
+sampel, dilakukan <em>median imputation</em> atau mengisi nilai yang
+kosong menggunakan nilai tengah dari masing-masing variabel. Hasil akhir
+menunjukkan seluruh kolom telah bersih dari nilai <em>missing
+value</em>.</p>
 </div>
 <div id="outlier" class="section level2">
 <h2>3.3 <em>Outlier</em></h2>
+<p>Berdasarkan visualisasi menggunakan boxplot pada variabel
+pengangguran dan rata-rata lama sekolah, terdeteksi adanya beberapa
+outlier. Pembersihan dilakukan dengan menggunakan metode IQR
+(<em>Interquartile Range</em>) dengan ambang batas 1.5 kali nilai IQR.
+Dataset lalu diperbarui, dimana data di luar rentang batas bawah dan
+batas atas sudah disaring.</p>
 </div>
 <div id="visualisasi" class="section level2">
 <h2>3.4 Visualisasi</h2>

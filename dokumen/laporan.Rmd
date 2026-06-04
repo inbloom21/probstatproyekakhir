@@ -13,7 +13,11 @@ ___
 ___
 ## 3.1 Statistika Deskriptif
 ## 3.2 *Missing Value*
+Berdasarkan pemeriksaan awal, ditemukan adanya data yang hilang pada beberapa variabel. Untuk mengatasi hal ini tanpa mengurangi ukuran sampel, dilakukan *median imputation* atau mengisi nilai yang kosong menggunakan nilai tengah dari masing-masing variabel. Hasil akhir menunjukkan seluruh kolom telah bersih dari nilai *missing value*.
+
 ## 3.3 *Outlier*
+Berdasarkan visualisasi menggunakan boxplot pada variabel pengangguran dan rata-rata lama sekolah, terdeteksi adanya beberapa outlier. Pembersihan dilakukan dengan menggunakan metode IQR (*Interquartile Range*) dengan ambang batas 1.5 kali nilai IQR. Dataset lalu diperbarui, dimana data di luar rentang batas bawah dan batas atas sudah disaring.
+
 ## 3.4 Visualisasi
 ## 3.5 Distribusi Data
 ## 3.6 Korelasi
