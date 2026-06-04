@@ -11,7 +11,7 @@ dim(data)
 summary(data)
 
 
-hasil <- data(
+statistik_variabel_terpilih <- data.frame(
   Variabel = c("kemiskinan", "rata_lama_sekolah"),
   Mean = c(
     mean(data$kemiskinan, na.rm = TRUE),
@@ -47,7 +47,7 @@ hasil <- data(
   )
 )
 
-hasil
+statistik_variabel_terpilih
 
 # Missing value (median imputation) (1.3.3)
 missing_value <- colSums(is.na(data))
