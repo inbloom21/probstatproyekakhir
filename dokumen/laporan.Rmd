@@ -4,10 +4,52 @@ output: html_document
 ---
 
 # BAB I PENDAHULUAN
-___
+## 1.1 Latar Belakang
+Pembangunan wilayah yang komprehensif tidak hanya diukur dari pertumbuhan infrastruktur fisik, tetapi juga dari peningkatkan taraf hidup dan kesejahteraan masyarakatnya. Salah satu indikator utama yang masih menjadi tantangan dalam pembangunan di berbagai wilayah di Indonesia adalah tingkat kemiskinan (Kuncoro, 2010). Kemiskinan merupakan fenomena multidimensional yang dipengaruhi oleh berbagai faktor sosial dan ekonomi. Dalam pendekatan makroekonomi, kualitas sumber daya manusia dan ketersediaan lapangan pekerjaan dianggap sebagai dua pilar krusial yang dapat mengentaskan masyarakat dari garis kemiskinan.
+
+Teori human capital atau modal manusia menegaskan bahwa pendidikan formal merupakan investasi jangka panjang yang berbanding lurus dengan peningkatan produktivitas dan kapabilitas ekonomi seseorang (Todaro & Smith, 2015). Hal ini direpresentasikan oleh indikator rata-rata lama sekolah. Logika statistiknya, semakin tinggi durasi pendidikan yang diselesaikan oleh penduduk di suatu wilayah, semakin besar peluang mereka untuk diserap oleh pasar kerja yang layak, sehingga tingkat kemiskinan dapat ditekan. Sebaliknya, ketidakmampuan pasar kerja dalam menyerap angkatan kerja akan memicu tingginya angka pengangguran terbuka. Tingkat pengangguran yang tinggi secara langsung memutus aliran pendapatan individu, yang pada akhirnya bermuara pada peningkatan persentase kemiskinan wilayah (Sukirno, 2011).
+
+Dalam pengolahan data riil terkait indikator-indikator tersebut, analis sering dihadapkan pada masalah kualitas data, seperti adanya data yang hilang (missing value) atau nilai anomali yang ekstrem (outlier). Oleh karena itu, proyek ini disusun untuk melakukan analisis statistika secara komprehensif menggunakan bahasa pemrograman R. Evaluasi difokuskan pada penerapan statistika deskriptif, penanganan ketidaksempurnaan data, hingga pembuktian statistik mengenai korelasi antara rata-rata lama sekolah dan tingkat pengangguran terhadap persentase kemiskinan di berbagai wilayah.
+
+## 1.2 Tujuan
+Melalui proyek akhir ini mahasiswa diharapkan mampu:
+
+1. Memahami struktur dan karakteristik dataset.
+2. Melakukan eksplorasi data menggunakan R.
+3. Mengidentifikasi missing value dan outlier.
+4. Melakukan statistika deskriptif.
+5. Membuat visualisasi data yang informatif.
+6. Menggunakan konsep probabilitas dan distribusi data.
+7. Melakukan analisis hubungan antar variabel.
+8. Menarik kesimpulan berbasis data.
+9. Menyusun laporan ilmiah sederhana.
+10. Mengkomunikasikan hasil analisis secara sistematis.
+
+## 1.3 Deskripsi Dataset
+Dataset yang digunakan dalam analisis ini adalah pembangunan_wilayah_missing_outlier.csv. Untuk menjawab tujuan pengamatan, analisis difokuskan pada dua variabel utama pengukur kualitas sumber daya manusia dan tenaga kerja, beserta variabel identitas wilayahnya.
+Berikut adalah rincian variabel yang digunakan:
+
+1. wilayah (Character): 
+2. provinsi (Character): 
+3. tahun (Integer): 
+4. pdrb_perkapita (Numeric): 
+5. kemiskinan (Numeric): 
+6. pengangguran (Numeric): 
+7. ipm (Numeric): 
+8. harapan_hidup (Numeric): 
+9. rata_lama_sekolah (Numeric): 
+10. akses_internet (Numeric): 
+11. jalan_baik (Numeric): 
+12. air_bersih (Numeric): 
+13. catatan_data (Character):
 
 # BAB II METODOLOGI
-___
+## 2.1 Tools
+- R dan R Studio: Bahasa pemrograman dan lingkungan IDE (Integrated Development Environment) yang digunakan untuk manipulasi dataframe, ekstraksi nilai statistik deskriptif, hingga pembuatan plot dan visualisasi hubungan antar variabel.
+- GitHub: Platform version control yang digunakan sebagai wadah kolaborasi kelompok untuk menyimpan, melacak perubahan, dan menyatukan script laporan analisis secara terpusat.
+
+## 2.2 Metode Analisis
+Analisis laporan ini berjalan melalui serangkaian proses komputasi statistik dengan tahapan berikut:
 
 # BAB III HASIL DAN PEMBAHASAN
 ___
