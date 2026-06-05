@@ -60,8 +60,28 @@ data <- data %>%
 colSums(is.na(data))
 
 # 0utlier (1.3.4)
+boxplot(data$pdrb_perkapita,
+        main = "Boxplot PDRB per Kapita",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$kemiskinan,
+        main = "Boxplot Kemiskinan",
+        ylab = "Nilai",
+        col = "Red")
+
 boxplot(data$pengangguran,
         main = "Boxplot Pengangguran",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$ipm,
+        main = "Boxplot IPM",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$harapan_hidup,
+        main = "Boxplot Harapan Hidup",
         ylab = "Nilai",
         col = "Red")
 
@@ -70,18 +90,38 @@ boxplot(data$rata_lama_sekolah,
         ylab = "Nilai",
         col = "Red")
 
-iqr_datapengangguran <- IQR(data$pengangguran)
+boxplot(data$akses_internet,
+        main = "Boxplot Akses Internet",
+        ylab = "Nilai",
+        col = "Red")
 
+boxplot(data$jalan_baik,
+        main = "Boxplot Jalan Baik",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$air_bersih,
+        main = "Boxplot Air Bersih",
+        ylab = "Nilai",
+        col = "Red")
+
+iqr_pdrb <- IQR(data$pdrb_perkapita)
+batas_bawah <- quantile(data$pdrb_perkapita, 0.25) - (1.5 * iqr_pdrb)
+batas_atas <- quantile(data$pdrb_perkapita, 0.75) + (1.5 * iqr_pdrb)
+data <- data %>%
+  filter(pdrb_perkapita >= batas_bawah & pdrb_perkapita <= batas_atas)
+
+iqr_kemiskinan <- IQR(data$kemiskinan)
+batas_bawah <- quantile(data$kemiskinan, 0.25) - (1.5 * iqr_kemiskinan)
+batas_atas <- quantile(data$kemiskinan, 0.75) + (1.5 * iqr_kemiskinan)
+data <- data %>%
+  filter(kemiskinan >= batas_bawah & kemiskinan <= batas_atas)
+
+iqr_datapengangguran <- IQR(data$pengangguran)
 batas_bawah <- quantile(data$pengangguran, 0.25) - (1.5 * iqr_datapengangguran)
 batas_atas <- quantile(data$pengangguran, 0.75) + (1.5 * iqr_datapengangguran)
 data <- data %>%
   filter(pengangguran >= batas_bawah & pengangguran <= batas_atas)
-
-iqr_datalamasekolah <- IQR(data$rata_lama_sekolah)
-batas_bawah <- quantile(data$rata_lama_sekolah, 0.25) - (1.5 * iqr_datalamasekolah)
-batas_atas <- quantile(data$rata_lama_sekolah, 0.75) + (1.5 * iqr_datalamasekolah)
-data <- data %>%
-  filter(rata_lama_sekolah >= batas_bawah & rata_lama_sekolah <= batas_atas)
 
 # Visualisasi data (1.3.5)
 
