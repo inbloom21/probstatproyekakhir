@@ -1,12 +1,14 @@
 ---
 title: "laporan"
 output:
-  word_document: default
-  pdf_document: default
   html_document: default
+  pdf_document: default
+  word_document: default
 ---
 
 # BAB I PENDAHULUAN
+
+------------------------------------------------------------------------
 
 ## 1.1 Latar Belakang
 
@@ -51,6 +53,8 @@ Dataset yang digunakan dalam analisis ini adalah pembangunan_wilayah_missing_out
 
 # BAB II METODOLOGI
 
+------------------------------------------------------------------------
+
 ## 2.1 Tools
 
 -   R dan R Studio: Bahasa pemrograman dan lingkungan IDE (Integrated Development Environment) yang digunakan untuk manipulasi dataframe, ekstraksi nilai statistik deskriptif, hingga pembuatan plot dan visualisasi hubungan antar variabel.
@@ -68,11 +72,15 @@ Analisis laporan ini berjalan melalui serangkaian proses komputasi statistik den
 
 ## 3.2 *Missing Value*
 
-Berdasarkan pemeriksaan awal, ditemukan adanya data yang hilang pada beberapa variabel. Untuk mengatasi hal ini tanpa mengurangi ukuran sampel, dilakukan *median imputation* atau mengisi nilai yang kosong menggunakan nilai tengah dari masing-masing variabel. Hasil akhir menunjukkan seluruh kolom telah bersih dari nilai *missing value*.
+*Missing value* adalah nilai yang dimaksudkan untuk didapatkan saat pengumpulan data, namun tidak berhasil didapatkan karena alasan tertentu. *Missing value* dapat muncul karena responden tidak menjawab semua pertanyaan di kuisioner, kesalahan pengukuran, kesalahan proses data entri, dan lain-lain (Kaiser 2014). Untuk mengatasi *missing value*, dibutuhkan metode penanganan *missing value*.
+
+Salah satu metode penanganan *missing value* adalah *median imputation*. *Median imputation* adalah metode mengganti *missing value* dengan nilai median dari variabel yang bersangkutan pada dataset (Alam *et al*. 2023). Pada dataset yang kami teliti, terdapat *missing value* pada beberapa variabel yang akan ditangani. Kami mencari nilai median dari masing-masing variabel dan mengisi nilai median tersebut pada bagian yang hilang.
 
 ## 3.3 *Outlier*
 
-Berdasarkan visualisasi menggunakan boxplot pada variabel pengangguran dan rata-rata lama sekolah, terdeteksi adanya beberapa outlier. Pembersihan dilakukan dengan menggunakan metode IQR (*Interquartile Range*) dengan ambang batas 1.5 kali nilai IQR. Dataset lalu diperbarui, dimana data di luar rentang batas bawah dan batas atas sudah disaring.
+*Outlier* adalah nilai ekstrem yang secara tidak normal berada diluar pola distribusi keseluruhan suatu variabel (Kwak dan Kim 2017). Untuk menangani *outlier* tersebut, kami menggunakan metode *trimming*. *Trimming* adalah metode menghapus *outlier* dari dataset. Metode tersebut dipilih karena jumlah outlier tidak terlalu banyak, sehingga tidak akan terlalu memengaruhi dataset ketika *outlier* dipangkas
+
+Pada dataset yang kami teliti, terdapat total 15 *outlier* yang tersebar di beberapa variabel. Secara rinci, variabel pdrb_perkapita memiliki 5 *outlier*, variabel kemiskinan memiliki 5 *outlier*, dan variabel pengangguran memiliki 5 *outlier*. Semua data *outlier* tersebut dipangkas sehingga jumlah kolom pada dataset berkurang dari 2500 menjadi 2485.
 
 ## 3.4 Visualisasi
 
@@ -113,3 +121,15 @@ Semakin tinggi
 # LAMPIRAN
 
 ------------------------------------------------------------------------
+
+# DAFTAR PUSTAKA
+
+------------------------------------------------------------------------
+
+Alam S, Ayub MS, Arora S, Khan MA. 2023. An investigation of the imputation techniques for missing values in ordinal data enhancing clustering and classification analysis validity. Decision Analytics Journal. 9:100341. doi:10.1016/j.dajour.2023.100341.
+
+Kaiser J. 2014. Dealing with Missing Values in Data. Journal of System Integration. 5(1)
+
+Kwak SK, Kim JH. 2017. Statistical data preparation: management of missing values and outliers. Korean Journal of Anesthesiol. 70(4):407. doi:10.4097/kjae.2017.70.4.407.
+
+
