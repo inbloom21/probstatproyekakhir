@@ -167,25 +167,29 @@ data %>%
        title = "Distribusi rata lama sekolah")
   
 
-# 3. Visualisasi Sactter Plot
+# 3. Visualisasi Scatter Plot
 data %>%
   select(kemiskinan, pdrb_perkapita) %>%
   ggplot(aes(kemiskinan, log10(pdrb_perkapita)))+
   geom_point()+
   labs(x="kemiskinan",
        y="pdrb_perkapita",
-       title = "Pengaruh kemiskinan terhadap pdrb_perkapita")
+       title = "Pengaruh kemiskinan terhadap pdrb_perkapita")+
+  geom_smooth(method = "lm", se=FALSE)
 
 
 
 
-# 4. Visualisasi Box Plot
+# 4. Visualisasi Scatter Plot
 data %>%
-  select(ipm) %>%
-  ggplot(aes(y=ipm))+
-  geom_boxplot()+
-  labs(y="ipm",
-       title = "Penyebaran data ipm")
+  select(kemiskinan, rata_lama_sekolah) %>%
+  ggplot(aes(kemiskinan, rata_lama_sekolah))+
+  geom_point()+
+  labs(x="kemiskinan",
+       y="rata lama sekolah",
+       title = "Pengaruh kemiskinan terhadap rata lama sekolah")+
+  geom_smooth(method = "lm", se=FALSE)
+
 
 
 # 5. Visualisai Barchart
