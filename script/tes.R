@@ -225,8 +225,8 @@ ggplot(data_visualisasi5, aes(x=provinsi, y=datalaporan2)) +
 # Analisis Korelasi (1.3.7)
 
 data %>% 
-  select(tahun, kemiskinan, pengangguran, harapan_hidup, ipm, rata_lama_sekolah, pdrb_perkapita, 
-         akses_internet, jalan_baik, air_bersih) %>%
+  select(tahun, kemiskinan, pengangguran, harapan_hidup, ipm, rata_lama_sekolah, 
+         pdrb_perkapita, akses_internet, jalan_baik, air_bersih) %>%
   cor()
   
 cor.test(data$pengangguran, data$harapan_hidup, method = "pearson")
