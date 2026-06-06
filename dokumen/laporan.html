@@ -355,11 +355,100 @@ display: none;
 
 <div id="bab-i-pendahuluan" class="section level1">
 <h1>BAB I PENDAHULUAN</h1>
-<hr />
+<div id="latar-belakang" class="section level2">
+<h2>1.1 Latar Belakang</h2>
+<p>Pembangunan wilayah yang komprehensif tidak hanya diukur dari
+pertumbuhan infrastruktur fisik, tetapi juga dari peningkatkan taraf
+hidup dan kesejahteraan masyarakatnya. Salah satu indikator utama yang
+masih menjadi tantangan dalam pembangunan di berbagai wilayah di
+Indonesia adalah tingkat kemiskinan (Kuncoro, 2010). Kemiskinan
+merupakan fenomena multidimensional yang dipengaruhi oleh berbagai
+faktor sosial dan ekonomi. Dalam pendekatan makroekonomi, kualitas
+sumber daya manusia dan ketersediaan lapangan pekerjaan dianggap sebagai
+dua pilar krusial yang dapat mengentaskan masyarakat dari garis
+kemiskinan.</p>
+<p>Teori human capital atau modal manusia menegaskan bahwa pendidikan
+formal merupakan investasi jangka panjang yang berbanding lurus dengan
+peningkatan produktivitas dan kapabilitas ekonomi seseorang (Todaro
+&amp; Smith, 2015). Hal ini direpresentasikan oleh indikator rata-rata
+lama sekolah. Logika statistiknya, semakin tinggi durasi pendidikan yang
+diselesaikan oleh penduduk di suatu wilayah, semakin besar peluang
+mereka untuk diserap oleh pasar kerja yang layak, sehingga tingkat
+kemiskinan dapat ditekan. Sebaliknya, ketidakmampuan pasar kerja dalam
+menyerap angkatan kerja akan memicu tingginya angka pengangguran
+terbuka. Tingkat pengangguran yang tinggi secara langsung memutus aliran
+pendapatan individu, yang pada akhirnya bermuara pada peningkatan
+persentase kemiskinan wilayah (Sukirno, 2011).</p>
+<p>Dalam pengolahan data riil terkait indikator-indikator tersebut,
+analis sering dihadapkan pada masalah kualitas data, seperti adanya data
+yang hilang (missing value) atau nilai anomali yang ekstrem (outlier).
+Oleh karena itu, proyek ini disusun untuk melakukan analisis statistika
+secara komprehensif menggunakan bahasa pemrograman R. Evaluasi
+difokuskan pada penerapan statistika deskriptif, penanganan
+ketidaksempurnaan data, hingga pembuktian statistik mengenai korelasi
+antara rata-rata lama sekolah dan tingkat pengangguran terhadap
+persentase kemiskinan di berbagai wilayah.</p>
+</div>
+<div id="tujuan" class="section level2">
+<h2>1.2 Tujuan</h2>
+<p>Melalui proyek akhir ini mahasiswa diharapkan mampu:</p>
+<ol style="list-style-type: decimal">
+<li>Memahami struktur dan karakteristik dataset.</li>
+<li>Melakukan eksplorasi data menggunakan R.</li>
+<li>Mengidentifikasi missing value dan outlier.</li>
+<li>Melakukan statistika deskriptif.</li>
+<li>Membuat visualisasi data yang informatif.</li>
+<li>Menggunakan konsep probabilitas dan distribusi data.</li>
+<li>Melakukan analisis hubungan antar variabel.</li>
+<li>Menarik kesimpulan berbasis data.</li>
+<li>Menyusun laporan ilmiah sederhana.</li>
+<li>Mengkomunikasikan hasil analisis secara sistematis.</li>
+</ol>
+</div>
+<div id="deskripsi-dataset" class="section level2">
+<h2>1.3 Deskripsi Dataset</h2>
+<p>Dataset yang digunakan dalam analisis ini adalah
+pembangunan_wilayah_missing_outlier.csv. Untuk menjawab tujuan
+pengamatan, analisis difokuskan pada dua variabel utama pengukur
+kualitas sumber daya manusia dan tenaga kerja, beserta variabel
+identitas wilayahnya. Berikut adalah rincian variabel yang
+digunakan:</p>
+<ol style="list-style-type: decimal">
+<li>wilayah (Character):</li>
+<li>provinsi (Character):</li>
+<li>tahun (Integer):</li>
+<li>pdrb_perkapita (Numeric):</li>
+<li>kemiskinan (Numeric):</li>
+<li>pengangguran (Numeric):</li>
+<li>ipm (Numeric):</li>
+<li>harapan_hidup (Numeric):</li>
+<li>rata_lama_sekolah (Numeric):</li>
+<li>akses_internet (Numeric):</li>
+<li>jalan_baik (Numeric):</li>
+<li>air_bersih (Numeric):</li>
+<li>catatan_data (Character):</li>
+</ol>
+</div>
 </div>
 <div id="bab-ii-metodologi" class="section level1">
 <h1>BAB II METODOLOGI</h1>
-<hr />
+<div id="tools" class="section level2">
+<h2>2.1 Tools</h2>
+<ul>
+<li>R dan R Studio: Bahasa pemrograman dan lingkungan IDE (Integrated
+Development Environment) yang digunakan untuk manipulasi dataframe,
+ekstraksi nilai statistik deskriptif, hingga pembuatan plot dan
+visualisasi hubungan antar variabel.</li>
+<li>GitHub: Platform version control yang digunakan sebagai wadah
+kolaborasi kelompok untuk menyimpan, melacak perubahan, dan menyatukan
+script laporan analisis secara terpusat.</li>
+</ul>
+</div>
+<div id="metode-analisis" class="section level2">
+<h2>2.2 Metode Analisis</h2>
+<p>Analisis laporan ini berjalan melalui serangkaian proses komputasi
+statistik dengan tahapan berikut:</p>
+</div>
 </div>
 <div id="bab-iii-hasil-dan-pembahasan" class="section level1">
 <h1>BAB III HASIL DAN PEMBAHASAN</h1>

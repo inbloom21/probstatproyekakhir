@@ -155,7 +155,7 @@ ggplot(data_visualisasi1, aes(x=tahun, y=datalaporan1)) +
 # 2. Visualisasi Scatter Plot
 data %>%
   select(pengangguran, pdrb_perkapita) %>%
-  ggplot(aes(pengangguran, pdrb_perkapita))+
+  ggplot(aes(pengangguran, scale(pdrb_perkapita)))+
   geom_point()+
   labs(x="Pengangguran",
        y="pdrb_perkapita",
@@ -230,6 +230,7 @@ data %>%
   cor()
   
 cor.test(data$pengangguran, data$harapan_hidup, method = "pearson")
+
 
 # Analisis Probabilitas dan Distribusi Data
 
