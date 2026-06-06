@@ -88,15 +88,21 @@ Rangkuman Grafik :
 
 Dari tahun 2020 hingga 2024 jumlah laporan konsisten diatas 400-an dengan jumlah laporan tertinggi terjadi pada tahun 2020.
 
-![](images/ScatterPlotPengangguranTerhadapPdrb.png)
+![](images/VisualisasiData1.png)
 
 Rangkuman Grafik :
 
-Semakin tinggi tingkat pengangguran ternyata tidak mempengaruhi nilai pdrb_perkapita. artinya tidak ada korelasi antara variabel pengangguran dengan variabel pdrb_perkapita
+Semakin tinggi tingkat kemiskinan ternyata tidak mempengaruhi nilai pdrb_perkapita. artinya tidak ada korelasi antara variabel kemiskinan dengan variabel pdrb_perkapita.
+
+Ringkasan Grafik :
+
+Semakin tinggi
 
 ## 3.5 Distribusi Data
 
 ## 3.6 Korelasi
+
+![](images/Korelasi1.PNG)
 
 ## 3.7 Interpretasi
 
