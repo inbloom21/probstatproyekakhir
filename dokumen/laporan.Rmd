@@ -102,7 +102,7 @@ Rangkuman Grafik :
 
 Semakin tinggi tingkat kemiskinan ternyata tidak mempengaruhi nilai pdrb_perkapita. artinya tidak ada korelasi antara variabel kemiskinan dengan variabel pdrb_perkapita.
 
-Ringkasan Grafik :
+Rangkuman Grafik :
 
 Semakin tinggi
 
@@ -126,10 +126,8 @@ Semakin tinggi
 
 ------------------------------------------------------------------------
 
-Alam S, Ayub MS, Arora S, Khan MA. 2023. An investigation of the imputation techniques for missing values in ordinal data enhancing clustering and classification analysis validity. Decision Analytics Journal. 9:100341. doi:10.1016/j.dajour.2023.100341.
+Alam S, Ayub MS, Arora S, Khan MA. 2023. An investigation of the imputation techniques for missing values in ordinal data enhancing clustering and classification analysis validity. Decision Analytics Journal. 9:100341. <doi:10.1016/j.dajour.2023.100341>.
 
 Kaiser J. 2014. Dealing with Missing Values in Data. Journal of System Integration. 5(1)
 
-Kwak SK, Kim JH. 2017. Statistical data preparation: management of missing values and outliers. Korean Journal of Anesthesiol. 70(4):407. doi:10.4097/kjae.2017.70.4.407.
-
-
+Kwak SK, Kim JH. 2017. Statistical data preparation: management of missing values and outliers. Korean Journal of Anesthesiol. 70(4):407. <doi:10.4097/kjae.2017.70.4.407>.

@@ -125,7 +125,7 @@ data <- data %>%
 
 # Visualisasi data (1.3.5)
 
-# 1. Visualisasi Barchat
+# 1. Visualisasi Barchart
 daftarTahun <- levels(factor(data$tahun))
 dataLaporan2020 <- data[data$tahun == 2020,]
 dataLaporan2021 <- data[data$tahun == 2021,]
@@ -152,20 +152,25 @@ ggplot(data_visualisasi1, aes(x=tahun, y=datalaporan1)) +
        title = "Jumlah Laporan dari tahun 2020 sampai 2024"
        )
 
-# 2. Visualisasi Scatter Plot
+# 2. Visualisasi Histogram
 data %>%
-  select(pengangguran, pdrb_perkapita) %>%
-  ggplot(aes(pengangguran, scale(pdrb_perkapita)))+
-  geom_point()+
-  labs(x="Pengangguran",
-       y="pdrb_perkapita",
-       title = "Pengaruh pengangguran terhadap pdrb_perkapita")
+  select(rata_lama_sekolah) %>%
+  ggplot(aes(x = rata_lama_sekolah))+
+  geom_histogram(
+    bins = 15,
+    fill = "#4E79A7",
+    color = "white",
+    linewidth = 0.5
+  )+
+  labs(x="Rata Lama Sekolah",
+       y="Frekuensi",
+       title = "Distribusi rata lama sekolah")
   
 
 # 3. Visualisasi Sactter Plot
 data %>%
   select(kemiskinan, pdrb_perkapita) %>%
-  ggplot(aes(kemiskinan, scale(pdrb_perkapita)))+
+  ggplot(aes(kemiskinan, log10(pdrb_perkapita)))+
   geom_point()+
   labs(x="kemiskinan",
        y="pdrb_perkapita",
@@ -183,7 +188,7 @@ data %>%
        title = "Penyebaran data ipm")
 
 
-# 5. Visualisai Barchat
+# 5. Visualisai Barchart
 daftarProvinsi <- levels(factor(data$provinsi))
 dataLaporanBanten <- data[data$provinsi == "Banten",]
 dataLaporanJawaTimur <- data[data$provinsi == "Jawa Timur",]
