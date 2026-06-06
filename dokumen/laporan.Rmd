@@ -96,15 +96,23 @@ Rangkuman Grafik :
 
 Dari tahun 2020 hingga 2024 jumlah laporan konsisten diatas 400-an dengan jumlah laporan tertinggi terjadi pada tahun 2020.
 
-![](images/VisualisasiData1.png)
+![](images/visualisasi3.png)
 
 Rangkuman Grafik :
 
-Semakin tinggi tingkat kemiskinan ternyata tidak mempengaruhi nilai pdrb_perkapita. artinya tidak ada korelasi antara variabel kemiskinan dengan variabel pdrb_perkapita.
+Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai pdrb_perkapita. artinya kemungkinan besar tidak ada korelasi antara variabel kemiskinan dengan variabel pdrb_perkapita.
+
+![](images/visualisasi2-01.png)
 
 Rangkuman Grafik :
 
-Semakin tinggi
+Distribusi data tidak berbentuk distribusi normal. Dalam range 7.5 hingga 10.0 terdapat kemunculan data tertinggi yaitu diatas 200.
+
+![](images/visualisasi4.png)
+
+Rangkuman Grafik :
+
+Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata lama sekolah. artinya ada kemungkinan besar tidak ada korelasi antara variabel kemiskinan dengan variabel rata lama sekolah.
 
 ## 3.5 Distribusi Data
 
