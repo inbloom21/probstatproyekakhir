@@ -126,10 +126,6 @@ Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata
 
 ------------------------------------------------------------------------
 
-Berdasarkan hasil analisis data pembangunan wilayah menggunakan R, diperoleh bahwa dataset mengandung missing value dan outlier yang perlu ditangani sebelum dilakukan analisis lebih lanjut. Missing value ditangani menggunakan metode median imputation, sedangkan outlier ditangani dengan menggunakan metode trimming. Hasil statistika deskriptif dan visualisasi menunjukkan adanya variasi kondisi pembangunan antarwilayah pada indikator ekonomi, pendidikan, dan kesejahteraan masyarakat.
-
-Analisis korelasi menunjukkan bahwa tingkat kemiskinan memiliki hubungan dengan faktor pendidikan dan pengangguran, meskipun kekuatan hubungannya tidak terlalu besar. Temuan ini mengindikasikan bahwa pembangunan wilayah dipengaruhi oleh berbagai faktor yang saling berkaitan, tidak hanya satu indikator tertentu. Oleh karena itu, peningkatan kualitas pendidikan, perluasan kesempatan kerja, serta pemerataan pembangunan menjadi aspek penting dalam mendukung pembangunan wilayah yang lebih baik dan berkelanjutan.
-
 
 # LAMPIRAN
 
