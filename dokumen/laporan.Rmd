@@ -1,8 +1,8 @@
 ---
 title: "laporan"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
   word_document: default
 ---
 
@@ -12,9 +12,9 @@ output:
 
 ## 1.1 Latar Belakang
 
-Pembangunan wilayah yang komprehensif tidak hanya diukur dari pertumbuhan infrastruktur fisik, tetapi juga dari peningkatkan taraf hidup dan kesejahteraan masyarakatnya. Salah satu indikator utama yang masih menjadi tantangan dalam pembangunan di berbagai wilayah di Indonesia adalah tingkat kemiskinan (Kuncoro, 2010). Kemiskinan merupakan fenomena multidimensional yang dipengaruhi oleh berbagai faktor sosial dan ekonomi. Dalam pendekatan makroekonomi, kualitas sumber daya manusia dan ketersediaan lapangan pekerjaan dianggap sebagai dua pilar krusial yang dapat mengentaskan masyarakat dari garis kemiskinan.
+Pembangunan wilayah yang komprehensif tidak hanya diukur dari pertumbuhan infrastruktur fisik, tetapi juga dari peningkatkan taraf hidup dan kesejahteraan masyarakatnya. Salah satu indikator utama yang masih menjadi tantangan dalam pembangunan di berbagai wilayah di Indonesia adalah tingkat kemiskinan (Kuncoro 2010). Kemiskinan merupakan fenomena multidimensional yang dipengaruhi oleh berbagai faktor sosial dan ekonomi. Dalam pendekatan makroekonomi, kualitas sumber daya manusia dan ketersediaan lapangan pekerjaan dianggap sebagai dua pilar krusial yang dapat mengentaskan masyarakat dari garis kemiskinan.
 
-Teori human capital atau modal manusia menegaskan bahwa pendidikan formal merupakan investasi jangka panjang yang berbanding lurus dengan peningkatan produktivitas dan kapabilitas ekonomi seseorang (Todaro & Smith, 2015). Hal ini direpresentasikan oleh indikator rata-rata lama sekolah. Logika statistiknya, semakin tinggi durasi pendidikan yang diselesaikan oleh penduduk di suatu wilayah, semakin besar peluang mereka untuk diserap oleh pasar kerja yang layak, sehingga tingkat kemiskinan dapat ditekan. Sebaliknya, ketidakmampuan pasar kerja dalam menyerap angkatan kerja akan memicu tingginya angka pengangguran terbuka. Tingkat pengangguran yang tinggi secara langsung memutus aliran pendapatan individu, yang pada akhirnya bermuara pada peningkatan persentase kemiskinan wilayah (Sukirno, 2011).
+Teori human capital atau modal manusia menegaskan bahwa pendidikan formal merupakan investasi jangka panjang yang berbanding lurus dengan peningkatan produktivitas dan kapabilitas ekonomi seseorang (Todaro dan Smith 2015). Hal ini direpresentasikan oleh indikator rata-rata lama sekolah. Logika statistiknya, semakin tinggi durasi pendidikan yang diselesaikan oleh penduduk di suatu wilayah, semakin besar peluang mereka untuk diserap oleh pasar kerja yang layak, sehingga tingkat kemiskinan dapat ditekan. Sebaliknya, ketidakmampuan pasar kerja dalam menyerap angkatan kerja akan memicu tingginya angka pengangguran terbuka. Tingkat pengangguran yang tinggi secara langsung memutus aliran pendapatan individu, yang pada akhirnya bermuara pada peningkatan persentase kemiskinan wilayah (Sukirno, 2011).
 
 Dalam pengolahan data riil terkait indikator-indikator tersebut, analis sering dihadapkan pada masalah kualitas data, seperti adanya data yang hilang (missing value) atau nilai anomali yang ekstrem (outlier). Oleh karena itu, proyek ini disusun untuk melakukan analisis statistika secara komprehensif menggunakan bahasa pemrograman R. Evaluasi difokuskan pada penerapan statistika deskriptif, penanganan ketidaksempurnaan data, hingga pembuktian statistik mengenai korelasi antara rata-rata lama sekolah dan tingkat pengangguran terhadap persentase kemiskinan di berbagai wilayah.
 
@@ -171,7 +171,7 @@ Analisis Fungsi Kepadatan Probabilitas (Probability Density Function - PDF)
 
 Untuk memetakan sebaran peluang dari tingkat kemiskinan wilayah, fungsi kerapatan probabilitas kontinu divisualisasikan melalui grafik histogram densitas. Penggunaan argumen probability = TRUE di dalam RStudio secara otomatis mengubah skala frekuensi mentah menjadi nilai kepekatan peluang (density). Melalui pendekatan ini, total seluruh luasan area di bawah kurva dijamin bernilai tepat 1 (memenuhi hukum aksioma probabilitas sebesar 100%).
 
-![](images/Perbandingan Distribusi Peluang Kemiskinan.png)
+![](../gambar/Perbandingan Distribusi Peluang Kemiskinan.png)
 
 Di dalam grafik "Perbandingan Distribusi Peluang Kemiskinan", dibentuk dua pemodelan kurva untuk melihat kecocokan (goodness of fit) data:
 1.	Kurva Densitas Empiris (Garis Merah): Grafik ini merepresentasikan bentuk fungsi peluang riil dari data yang dikumpulkan langsung di lapangan.
@@ -182,7 +182,7 @@ Interpretasi: Berdasarkan hasil eksekusi grafik, terlihat bahwa garis merah empi
 Keselarasan Distribusi Menggunakan Q-Q Plot
 Untuk melakukan validasi secara lebih rigid apakah sebaran peluang variabel kemiskinan benar-benar adaptif terhadap model Distribusi Normal Gaussian, dilakukan pengujian visual menggunakan Quantile-Quantile Plot (Q-Q Plot).
 
-![](images/Uji Normalitas Kemiskinan.png)
+![](../gambar/Uji Normalitas Kemiskinan.png)
 
 Melalui grafik Q-Q Plot yang dieksekusi, sumbu plot memetakan sebaran kuartil data riil (Sample Quantiles) terhadap kuartil ideal teoretis (Theoretical Quantiles). Hasil visualisasi menunjukkan bahwa kumpulan titik koordinat data (lingkaran hitam) menyebar dengan merapat, konsisten, dan menempel langsung di sepanjang garis lurus diagonal berwarna merah (qqline).
 Walaupun dijumpai adanya sedikit kerenggangan minor pada ujung ekor distribusi (tails) yang mencerminkan sisa nilai batas atas maksimal 25.00%, secara keseluruhan pola visual ini sah memenuhi kriteria Distribusi Normal. Oleh karena itu, penerapan rumus peluang berbasis statistik parametrik pada data ini dapat dipertanggungjawabkan akurasinya.
