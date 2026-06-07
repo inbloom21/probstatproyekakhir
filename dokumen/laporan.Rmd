@@ -63,6 +63,11 @@ Dataset yang digunakan dalam analisis ini adalah `pembangunan_wilayah_missing_ou
 
 13. catatan_data (Character):Keterangan kondisi data, misalnya data normal, mengandung                                  missing value, atau outlier.
 
+
+Pada proyek analisis data pembangunan wilayah ini, kami memilih variabel kemiskinan dan rata_lama_sekolah sebagai fokus pembahasan. Variabel kemiskinan dan rata_lama_sekolah dipilih karena keduanya merupakan indikator penting dalam pembangunan wilayah. Variabel kemiskinan menggambarkan tingkat kesejahteraan masyarakat, sedangkan rata_lama_sekolah menggambarkan tingkat pendidikan penduduk.
+
+Kedua variabel ini dipilih karena pendidikan dan kesejahteraan memiliki hubungan yang erat dalam pembangunan suatu wilayah. Tingkat pendidikan yang lebih baik dapat meningkatkan kualitas sumber daya manusia dan peluang kerja, yang pada akhirnya dapat berkontribusi terhadap penurunan tingkat kemiskinan. Oleh karena itu, analisis kedua variabel ini dapat memberikan gambaran mengenai kondisi pembangunan wilayah dari aspek pendidikan dan kesejahteraan masyarakat.
+
 # BAB II METODOLOGI
 
 ------------------------------------------------------------------------
