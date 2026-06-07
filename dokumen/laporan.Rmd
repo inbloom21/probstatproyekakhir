@@ -118,7 +118,7 @@ Dari tahun 2020 hingga 2024 jumlah laporan konsisten diatas 400-an dengan jumlah
 
 Rangkuman Grafik :
 
-Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai pdrb_perkapita. artinya kemungkinan tidak ada korelasi antara variabel kemiskinan dengan variabel pdrb_perkapita.
+Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai pdrb_perkapita. artinya kemungkinan nilai korelasi antara variabel kemiskinan dengan variabel pdrb_perkapita tidak terlalu kuat.
 
 ![](images/visualisasi2-01.png)
 
