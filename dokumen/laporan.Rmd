@@ -168,6 +168,16 @@ Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata la
 
 ## 3.7 Interpretasi
 
+Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata lama sekolah akan dibahas lebih lanjut dibagian interpretasi.
+
+H~0~ = 0
+
+H~1~ ≠ 0
+
+Hasil analisis :
+
+Nilai p-value melebih dari nilai yang ditentukan yaitu 0.05 (5%) sehingga bisa dinyatakan bahwa kita berhasil menolak pernyataan H0
+
 # BAB IV KESIMPULAN
 
 ------------------------------------------------------------------------
