@@ -164,4 +164,12 @@ Alam S, Ayub MS, Arora S, Khan MA. 2023. An investigation of the imputation tech
 
 Kaiser J. 2014. Dealing with Missing Values in Data. Journal of System Integration. 5(1)
 
+Kuncoro, M. 2010. Ekonomi Pembangunan: Teori, Masalah, dan Kebijakan (Edisi ke-5). UPP STIM YKPN.
+
 Kwak SK, Kim JH. 2017. Statistical data preparation: management of missing values and outliers. Korean Journal of Anesthesiol. 70(4):407. <doi:10.4097/kjae.2017.70.4.407>.
+
+Mankiw, N. G. 2018. Makroekonomi (Edisi ke-9). Penerbit Erlangga.
+
+Sukirno, S. 2011. Makroekonomi Teori Pengantar (Edisi ke-3). PT Raja Grafindo Persada.
+
+Todaro, M. P., & Smith, S. C. 2015. Pembangunan Ekonomi (Edisi ke-11). Penerbit Erlangga.
