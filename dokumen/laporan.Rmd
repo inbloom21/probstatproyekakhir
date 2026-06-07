@@ -57,8 +57,8 @@ Dataset yang digunakan dalam analisis ini adalah pembangunan_wilayah_missing_out
 
 ## 2.1 Tools
 
--   R dan R Studio: Bahasa pemrograman dan lingkungan IDE (Integrated Development Environment) yang digunakan untuk manipulasi dataframe, ekstraksi nilai statistik deskriptif, hingga pembuatan plot dan visualisasi hubungan antar variabel.
--   GitHub: Platform version control yang digunakan sebagai wadah kolaborasi kelompok untuk menyimpan, melacak perubahan, dan menyatukan script laporan analisis secara terpusat.
+- R dan R Studio: Bahasa pemrograman dan lingkungan IDE (Integrated Development Environment) yang digunakan untuk manipulasi dataframe, ekstraksi nilai statistik deskriptif, hingga pembuatan plot dan visualisasi hubungan antar variabel.
+- GitHub: Platform version control yang digunakan sebagai wadah kolaborasi kelompok untuk menyimpan, melacak perubahan, dan menyatukan script laporan analisis secara terpusat.
 
 ## 2.2 Metode Analisis
 
@@ -125,6 +125,11 @@ Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata
 # BAB IV KESIMPULAN
 
 ------------------------------------------------------------------------
+
+Berdasarkan hasil analisis data pembangunan wilayah menggunakan R, diperoleh bahwa dataset mengandung missing value dan outlier yang perlu ditangani sebelum dilakukan analisis lebih lanjut. Missing value ditangani menggunakan metode median imputation, sedangkan outlier ditangani dengan menggunakan metode trimming. Hasil statistika deskriptif dan visualisasi menunjukkan adanya variasi kondisi pembangunan antarwilayah pada indikator ekonomi, pendidikan, dan kesejahteraan masyarakat.
+
+Analisis korelasi menunjukkan bahwa tingkat kemiskinan memiliki hubungan dengan faktor pendidikan dan pengangguran, meskipun kekuatan hubungannya tidak terlalu besar. Temuan ini mengindikasikan bahwa pembangunan wilayah dipengaruhi oleh berbagai faktor yang saling berkaitan, tidak hanya satu indikator tertentu. Oleh karena itu, peningkatan kualitas pendidikan, perluasan kesempatan kerja, serta pemerataan pembangunan menjadi aspek penting dalam mendukung pembangunan wilayah yang lebih baik dan berkelanjutan.
+
 
 # LAMPIRAN
 
