@@ -37,19 +37,31 @@ Melalui proyek akhir ini mahasiswa diharapkan mampu:
 
 Dataset yang digunakan dalam analisis ini adalah pembangunan_wilayah_missing_outlier.csv. Untuk menjawab tujuan pengamatan, analisis difokuskan pada dua variabel utama pengukur kualitas sumber daya manusia dan tenaga kerja, beserta variabel identitas wilayahnya. Berikut adalah rincian variabel yang digunakan:
 
-1.  wilayah (Character):
-2.  provinsi (Character):
-3.  tahun (Integer):
-4.  pdrb_perkapita (Numeric):
-5.  kemiskinan (Numeric):
-6.  pengangguran (Numeric):
-7.  ipm (Numeric):
-8.  harapan_hidup (Numeric):
-9.  rata_lama_sekolah (Numeric):
-10. akses_internet (Numeric):
-11. jalan_baik (Numeric):
-12. air_bersih (Numeric):
-13. catatan_data (Character):
+1.  wilayah (Character): Nama kabupaten/kota yang menjadi objek pengamatan.
+
+2.  provinsi (Character): Nama provinsi tempat wilayah berada.
+
+3.  tahun (Integer): Tahun pengamatan data pembangunan wilayah.
+
+4.  pdrb_perkapita (Numeric): Produk Domestik Regional Bruto (PDRB) per kapita yang                                      menggambarkan tingkat aktivitas ekonomi dan pendapatan                                     rata-rata masyarakat suatu wilayah.
+
+5.  kemiskinan (Numeric): Persentase penduduk miskin pada suatu wilayah.
+
+6.  pengangguran (Numeric): Persentase tingkat pengangguran pada suatu wilayah.
+
+7.  ipm (Numeric): Indeks Pembangunan Manusia yang menggambarkan kualitas hidup masyarakat                    berdasarkan pendidikan, kesehatan, dan standar hidup.
+
+8.  harapan_hidup (Numeric): Rata-rata perkiraan umur yang dapat dicapai penduduk pada                                  suatu wilayah.
+
+9.  rata_lama_sekolah (Numeric): Rata-rata jumlah tahun pendidikan formal yang telah                                        ditempuh penduduk.
+
+10. akses_internet (Numeric):Persentase masyarakat yang memiliki atau menggunakan akses                                 internet.
+
+11. jalan_baik (Numeric):Persentase kondisi jalan yang berada dalam kategori baik.
+
+12. air_bersih (Numeric):Persentase masyarakat yang memiliki akses terhadap air bersih.
+
+13. catatan_data (Character):Keterangan kondisi data, misalnya data normal, mengandung                                  missing value, atau outlier.
 
 # BAB II METODOLOGI
 
@@ -69,6 +81,14 @@ Analisis laporan ini berjalan melalui serangkaian proses komputasi statistik den
 ------------------------------------------------------------------------
 
 ## 3.1 Statistika Deskriptif
+
+Analisis statistika deskriptif dilakukan terhadap seluruh variabel numerik dalam dataset, yaitu tahun, pdrb_perkapita, kemiskinan, pengangguran, ipm, harapan_hidup, rata_lama_sekolah, akses_internet, jalan_baik, dan air_bersih. Statistik yang dihitung meliputi mean, median, minimum, maksimum, kuartil, standar deviasi, dan varians.
+
+Berdasarkan hasil analisis, variabel pdrb_perkapita memiliki nilai rata-rata (mean) tertinggi, yaitu sebesar 135.650.500. Hal ini menunjukkan bahwa nilai PDRB per kapita memiliki skala yang jauh lebih besar dibandingkan variabel numerik lainnya dalam dataset.
+
+Dilihat dari ukuran penyebaran data, variabel pdrb_perkapita juga memiliki standar deviasi terbesar, yaitu sekitar 89.341.270, dengan varians sebesar 7,98 × 10¹⁵. Nilai tersebut menunjukkan bahwa data PDRB per kapita memiliki variasi yang sangat besar antar wilayah yang diamati.
+
+Selain itu, terdapat indikasi bahwa distribusi data pdrb_perkapita tidak sepenuhnya normal. Hal ini terlihat dari rentang data yang sangat lebar, yaitu dari 15.031.581 hingga 1.774.545.000, serta adanya perbedaan yang cukup besar antara nilai minimum dan maksimum. Kondisi tersebut mengindikasikan kemungkinan adanya nilai ekstrem (outlier) yang menyebabkan distribusi data menjadi tidak simetris.
 
 ## 3.2 *Missing Value*
 
