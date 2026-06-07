@@ -176,7 +176,7 @@ H~1~ ≠ 0
 
 Hasil analisis :
 
-Nilai p-value melebih dari nilai yang ditentukan yaitu 0.05 (5%) sehingga bisa dinyatakan bahwa kita berhasil menolak pernyataan H0
+Nilai p-value melebih dari nilai yang ditentukan yaitu 0.05 (5%) sehingga bisa dinyatakan bahwa kita gagal menolak pernyataan H~0.~ tidak terdapat cukup bukti untuk menyatakan adanya pengaruh signifikan antara variabel **kemiskinan** dengan **rata lama sekolah**.
 
 # BAB IV KESIMPULAN
 
