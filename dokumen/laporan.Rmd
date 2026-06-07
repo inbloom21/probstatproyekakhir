@@ -20,7 +20,7 @@ Dalam pengolahan data riil terkait indikator-indikator tersebut, analis sering d
 
 ## 1.2 Tujuan
 
-Melalui proyek akhir ini mahasiswa diharapkan mampu:
+Tujuan dari analisis data pembangunan wilayah ini adalah sebagai berikut:
 
 1.  Memahami struktur dan karakteristik dataset.
 2.  Melakukan eksplorasi data menggunakan R.
@@ -35,7 +35,7 @@ Melalui proyek akhir ini mahasiswa diharapkan mampu:
 
 ## 1.3 Deskripsi Dataset
 
-Dataset yang digunakan dalam analisis ini adalah pembangunan_wilayah_missing_outlier.csv. Untuk menjawab tujuan pengamatan, analisis difokuskan pada dua variabel utama pengukur kualitas sumber daya manusia dan tenaga kerja, beserta variabel identitas wilayahnya. Berikut adalah rincian variabel yang digunakan:
+Dataset yang digunakan dalam analisis ini adalah `pembangunan_wilayah_missing_outlier.csv`. Untuk menjawab tujuan pengamatan, analisis difokuskan pada dua variabel utama pengukur kualitas sumber daya manusia dan tenaga kerja, beserta variabel identitas wilayahnya. Berikut adalah rincian variabel yang digunakan:
 
 1.  wilayah (Character): Nama kabupaten/kota yang menjadi objek pengamatan.
 
@@ -69,12 +69,30 @@ Dataset yang digunakan dalam analisis ini adalah pembangunan_wilayah_missing_out
 
 ## 2.1 Tools
 
-- R dan R Studio: Bahasa pemrograman dan lingkungan IDE (Integrated Development Environment) yang digunakan untuk manipulasi dataframe, ekstraksi nilai statistik deskriptif, hingga pembuatan plot dan visualisasi hubungan antar variabel.
-- GitHub: Platform version control yang digunakan sebagai wadah kolaborasi kelompok untuk menyimpan, melacak perubahan, dan menyatukan script laporan analisis secara terpusat.
+Dalam pengerjaan proyek ini, beberapa perangkat lunak dan platform yang digunakan antara lain:
+
+1.  R dan R Studio: Digunakan sebagai *environment* utama komputasi statistik. Modul yang dieksekusi mengandalkan *library* spesifik, yaitu:
+    -   `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
+    -   `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
+2.  GitHub: Digunakan sebagai repositori kolaborasi untuk mengontrol versi (*version control*) kode R dan dokumen laporan.
 
 ## 2.2 Metode Analisis
 
-Analisis laporan ini berjalan melalui serangkaian proses komputasi statistik dengan tahapan berikut:
+Analisis data dalam laporan ini dilakukan melalui serangkaian tahapan komputasi statistik menggunakan bahasa pemrograman R. Berikut adalah tahapan metode analisis yang diterapkan:
+
+1.  Statistika Deskriptif Pada tahap ini, dilakukan ekstraksi parameter statistik dari variabel dependen (kemiskinan) dan variabel independen (rata-rata lama sekolah dan pengangguran). Pengukuran mencakup nilai pemusatan data (Rata-rata/ *Mean* dan Nilai Tengah/ *Median*) serta penyebaran data (Nilai Minimum, Maksimum, Kuartil 1, Kuartil 3, Standar Deviasi, dan Varians).
+
+2.  Pra-pemrosesan Data (*Data Pre-processing*) Dataset mentah sering kali memiliki ketidaksempurnaan, sehingga perlu dilakukan pembersihan data yang mencakup dua penanganan utama:
+
+    -   Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
+
+    -   Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
+
+3.  Visualisasi Data Eksplorasi visual dilakukan menggunakan pustaka `ggplot2` untuk melihat pola dan distribusi data secara lebih intuitif. Visualisasi yang dibuat meliputi *Bar chart* (untuk membandingkan jumlah laporan antar tahun dan provinsi), *Boxplot* (untuk melihat penyebaran Indeks Pembangunan Manusia), serta *Scatter plot* (untuk melihat sebaran awal hubungan antar variabel).
+
+4.  Analisis Korelasi Untuk menguji hipotesis hubungan antar variabel, dilakukan uji korelasi Pearson. Uji ini bertujuan untuk mengetahui seberapa kuat dan ke arah mana (positif atau negatif) hubungan linier yang terjadi antara tingkat pendidikan (rata-rata lama sekolah) dengan tingkat kemiskinan, serta persentase pengangguran dengan kemiskinan. Hasil analisis numerik ini juga divisualisasikan dengan garis regresi pada *Scatter plot*.
+
+5.  Analisis Probabilitas dan Distribusi Data Tahap terakhir adalah melakukan uji kenormalan distribusi pada variabel yang dianalisis. Pengujian dilakukan melalui visualisasi grafis berlapis, yaitu dengan memetakan kurva densitas probabilitas di atas histogram, serta menggunakan *Quantile-Quantile Plot* (Q-Q Plot) untuk melihat apakah sebaran titik data sejajar dengan garis normal teoritis.
 
 # BAB III HASIL DAN PEMBAHASAN
 
@@ -120,7 +138,7 @@ Dari tahun 2020 hingga 2024 jumlah laporan konsisten diatas 400-an dengan jumlah
 
 Rangkuman Grafik :
 
-Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai pdrb_perkapita. artinya kemungkinan besar tidak ada korelasi antara variabel kemiskinan dengan variabel pdrb_perkapita.
+Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai pdrb_perkapita. artinya kemungkinan nilai korelasi antara variabel kemiskinan dengan variabel pdrb_perkapita tidak terlalu kuat.
 
 ![](images/visualisasi2-01.png)
 
@@ -132,13 +150,21 @@ Distribusi data tidak berbentuk distribusi normal. Dalam range 7.5 hingga 10.0 t
 
 Rangkuman Grafik :
 
-Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata lama sekolah. artinya ada kemungkinan besar tidak ada korelasi antara variabel kemiskinan dengan variabel rata lama sekolah.
+Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata lama sekolah. artinya ada kemungkinan nilai korelasi antara variabel kemiskinan dengan variabel rata lama sekolah tidak terlalu kuat.
 
 ## 3.5 Distribusi Data
 
 ## 3.6 Korelasi
 
+Dilakukan uji coba korelasi setiap variabel dengan variabel lainnya menggunakan fungsi **cor()**. fungsi **cor()** adalah sebuah fungsi bawaan dari R untuk menghitung korelasi variabel.
+
 ![](images/Korelasi1.PNG)
+
+Agar bisa membahas korelasi variabel lebih lanjut. Dilakukan uji coba kepada dua variabel terpilih yaitu **kemiskinan** dan **rata_lama_sekolah** menggunakan fungsi **cor.test()**. fungsi **cor.test()** adalah sebuah fungsi seperti **cor()** tetapi yang membedakan adalah fungsi **cor.test()** memberikan informasi lebih detail.
+
+![](images/Korelasi2.PNG)
+
+Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata lama sekolah akan dibahas lebih lanjut dibagian interpretasi.
 
 ## 3.7 Interpretasi
 
@@ -149,7 +175,6 @@ Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata
 Berdasarkan hasil analisis data pembangunan wilayah menggunakan R, diperoleh bahwa dataset mengandung missing value dan outlier yang perlu ditangani sebelum dilakukan analisis lebih lanjut. Missing value ditangani menggunakan metode median imputation, sedangkan outlier ditangani dengan menggunakan metode trimming. Hasil statistika deskriptif dan visualisasi menunjukkan adanya variasi kondisi pembangunan antarwilayah pada indikator ekonomi, pendidikan, dan kesejahteraan masyarakat.
 
 Analisis korelasi menunjukkan bahwa tingkat kemiskinan memiliki hubungan dengan faktor pendidikan dan pengangguran, meskipun kekuatan hubungannya tidak terlalu besar. Temuan ini mengindikasikan bahwa pembangunan wilayah dipengaruhi oleh berbagai faktor yang saling berkaitan, tidak hanya satu indikator tertentu. Oleh karena itu, peningkatan kualitas pendidikan, perluasan kesempatan kerja, serta pemerataan pembangunan menjadi aspek penting dalam mendukung pembangunan wilayah yang lebih baik dan berkelanjutan.
-
 
 # LAMPIRAN
 
@@ -163,4 +188,12 @@ Alam S, Ayub MS, Arora S, Khan MA. 2023. An investigation of the imputation tech
 
 Kaiser J. 2014. Dealing with Missing Values in Data. Journal of System Integration. 5(1)
 
+Kuncoro, M. 2010. Ekonomi Pembangunan: Teori, Masalah, dan Kebijakan (Edisi ke-5). UPP STIM YKPN.
+
 Kwak SK, Kim JH. 2017. Statistical data preparation: management of missing values and outliers. Korean Journal of Anesthesiol. 70(4):407. <doi:10.4097/kjae.2017.70.4.407>.
+
+Mankiw, N. G. 2018. Makroekonomi (Edisi ke-9). Penerbit Erlangga.
+
+Sukirno, S. 2011. Makroekonomi Teori Pengantar (Edisi ke-3). PT Raja Grafindo Persada.
+
+Todaro, M. P., & Smith, S. C. 2015. Pembangunan Ekonomi (Edisi ke-11). Penerbit Erlangga.
