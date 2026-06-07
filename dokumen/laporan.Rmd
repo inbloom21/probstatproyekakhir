@@ -142,6 +142,10 @@ Dilakukan uji coba korelasi setiap variabel dengan variabel lainnya menggunakan 
 
 Agar bisa membahas korelasi variabel lebih lanjut. Dilakukan uji coba kepada dua variabel terpilih yaitu **kemiskinan** dan **rata_lama_sekolah** menggunakan fungsi **cor.test()**. fungsi **cor.test()** adalah sebuah fungsi seperti **cor()** tetapi yang membedakan adalah fungsi **cor.test()** memberikan informasi lebih detail.
 
+![](images/Korelasi2.PNG)
+
+Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata lama sekolah akan dibahas lebih lanjut dibagian interpretasi.
+
 ## 3.7 Interpretasi
 
 # BAB IV KESIMPULAN
