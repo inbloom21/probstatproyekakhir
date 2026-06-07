@@ -1,0 +1,39 @@
+---
+title: "Laporan"
+output: powerpoint_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Latar belakang
+
+Pembangunan wilayah yang komprehensif tidak hanya diukur dari pertumbuhan infrastruktur fisik, tetapi juga dari peningkatkan taraf hidup dan kesejahteraan masyarakatnya. Salah satu indikator utama yang masih menjadi tantangan dalam pembangunan di berbagai wilayah di Indonesia adalah tingkat kemiskinan (Kuncoro 2010). Kemiskinan merupakan fenomena multidimensional yang dipengaruhi oleh berbagai faktor sosial dan ekonomi. Dalam pendekatan makroekonomi, kualitas sumber daya manusia dan ketersediaan lapangan pekerjaan dianggap sebagai dua pilar krusial yang dapat mengentaskan masyarakat dari garis kemiskinan.
+
+## Latar belakang
+
+Teori human capital atau modal manusia menegaskan bahwa pendidikan formal merupakan investasi jangka panjang yang berbanding lurus dengan peningkatan produktivitas dan kapabilitas ekonomi seseorang (Todaro dan Smith 2015). Hal ini direpresentasikan oleh indikator rata-rata lama sekolah. Logika statistiknya, semakin tinggi durasi pendidikan yang diselesaikan oleh penduduk di suatu wilayah, semakin besar peluang mereka untuk diserap oleh pasar kerja yang layak, sehingga tingkat kemiskinan dapat ditekan. Sebaliknya, ketidakmampuan pasar kerja dalam menyerap angkatan kerja akan memicu tingginya angka pengangguran terbuka. Tingkat pengangguran yang tinggi secara langsung memutus aliran pendapatan individu, yang pada akhirnya bermuara pada peningkatan persentase kemiskinan wilayah (Sukirno, 2011).
+
+## Latar belakang
+
+Dalam pengolahan data riil terkait indikator-indikator tersebut, analis sering dihadapkan pada masalah kualitas data, seperti adanya data yang hilang (missing value) atau nilai anomali yang ekstrem (outlier). Oleh karena itu, proyek ini disusun untuk melakukan analisis statistika secara komprehensif menggunakan bahasa pemrograman R. Evaluasi difokuskan pada penerapan statistika deskriptif, penanganan ketidaksempurnaan data, hingga pembuktian statistik mengenai korelasi antara rata-rata lama sekolah dan tingkat pengangguran terhadap persentase kemiskinan di berbagai wilayah.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+

@@ -1,6 +1,7 @@
 library(dplyr)
 library(ggplot2)
 
+
 # memahami dataset
 data <- read.csv("dataset/pembangunan_wilayah_missing_outlier.csv")
 str(data)
@@ -9,45 +10,26 @@ dim(data)
 
 
 summary(data)
+sapply(data, class)
 
+options(scipen = 999)
 
-statistik_variabel_terpilih <- data.frame(
-  Variabel = c("kemiskinan", "rata_lama_sekolah"),
-  Mean = c(
-    mean(data$kemiskinan, na.rm = TRUE),
-    mean(data$rata_lama_sekolah, na.rm = TRUE)
-  ),
-  Median = c(
-    median(data$kemiskinan, na.rm = TRUE),
-    median(data$rata_lama_sekolah, na.rm = TRUE)
-  ),
-  Min = c(
-    min(data$kemiskinan, na.rm = TRUE),
-    min(data$rata_lama_sekolah, na.rm = TRUE)
-  ),
-  Q1 = c(
-    quantile(data$kemiskinan, 0.25, na.rm = TRUE),
-    quantile(data$rata_lama_sekolah, 0.25, na.rm = TRUE)
-  ),
-  Q3 = c(
-    quantile(data$kemiskinan, 0.75, na.rm = TRUE),
-    quantile(data$rata_lama_sekolah, 0.75, na.rm = TRUE)
-  ),
-  Max = c(
-    max(data$kemiskinan, na.rm = TRUE),
-    max(data$rata_lama_sekolah, na.rm = TRUE)
-  ),
-  SD = c(
-    sd(data$kemiskinan, na.rm = TRUE),
-    sd(data$rata_lama_sekolah, na.rm = TRUE)
-  ),
-  Varians = c(
-    var(data$kemiskinan, na.rm = TRUE),
-    var(data$rata_lama_sekolah, na.rm = TRUE)
-  )
+numerik <- data[sapply(data, is.numeric)]
+
+statistik_deskriptif <- data.frame(
+  Variabel = names(select(data, where(is.numeric))),
+  Mean = sapply(select(data, where(is.numeric)), mean, na.rm = TRUE),
+  Median = sapply(select(data, where(is.numeric)), median, na.rm = TRUE),
+  Min = sapply(select(data, where(is.numeric)), min, na.rm = TRUE),
+  Q1 = sapply(select(data, where(is.numeric)), quantile, probs = 0.25, na.rm = TRUE),
+  Q2 = sapply(select(data, where(is.numeric)), quantile, probs = 0.50, na.rm = TRUE),
+  Q3 = sapply(select(data, where(is.numeric)), quantile, probs = 0.75, na.rm = TRUE),
+  Max = sapply(select(data, where(is.numeric)), max, na.rm = TRUE),
+  SD = sapply(select(data, where(is.numeric)), sd, na.rm = TRUE),
+  Varians = sapply(select(data, where(is.numeric)), var, na.rm = TRUE)
 )
 
-statistik_variabel_terpilih
+statistik_deskriptif
 
 # Missing value (median imputation) (1.3.3)
 missing_value <- colSums(is.na(data))
@@ -238,89 +220,99 @@ data %>%
          pdrb_perkapita, akses_internet, jalan_baik, air_bersih) %>%
   cor()
   
-cor.test(data$pengangguran, data$harapan_hidup, method = "pearson")
+cor.test(data$kemiskinan, data$rata_lama_sekolah, method = "pearson")
 
 
 # Analisis Probabilitas dan Distribusi Data
 
-data_bersih <- data 
+data <- read.csv("dataset/pembangunan_wilayah_missing_outlier.csv")
 
-hasil_akhir <- data.frame(
-  Variabel = c("kemiskinan", "rata_lama_sekolah", "pengangguran"),
-  
-  Mean = c(
-    mean(data_bersih$kemiskinan),
-    mean(data_bersih$rata_lama_sekolah),
-    mean(data_bersih$pengangguran)
-  ),
-  Median = c(
-    median(data_bersih$kemiskinan),
-    median(data_bersih$rata_lama_sekolah),
-    median(data_bersih$pengangguran)
-  ),
-  Min = c(
-    min(data_bersih$kemiskinan),
-    min(data_bersih$rata_lama_sekolah),
-    min(data_bersih$pengangguran)
-  ),
-  Max = c(
-    max(data_bersih$kemiskinan),
-    max(data_bersih$rata_lama_sekolah),
-    max(data_bersih$pengangguran)
-  )
+hasil_awal <- data.frame(
+  Variabel = "kemiskinan",
+  Mean     = mean(data$kemiskinan, na.rm = TRUE),
+  Median   = median(data$kemiskinan, na.rm = TRUE),
+  Min      = min(data$kemiskinan, na.rm = TRUE),
+  Q1       = as.numeric(quantile(data$kemiskinan, 0.25, na.rm = TRUE)),
+  Q3       = as.numeric(quantile(data$kemiskinan, 0.75, na.rm = TRUE)),
+  Max      = max(data$kemiskinan, na.rm = TRUE),
+  SD       = sd(data$kemiskinan, na.rm = TRUE),
+  Varians  = var(data$kemiskinan, na.rm = TRUE)
 )
 
+print("=== STATISTIK DESKRIPTIF AWAL ===")
+print(hasil_awal)
+
+
+# Imputasi nilai NA khusus pada variabel kemiskinan menggunakan nilai tengah
+data <- data %>%
+  mutate(kemiskinan = ifelse(is.na(kemiskinan), median(kemiskinan, na.rm = TRUE), kemiskinan))
+
+
+# Menghitung batas pencilan untuk variabel kemiskinan
+iqr_kemiskinan <- IQR(data$kemiskinan)
+batas_bawah    <- quantile(data$kemiskinan, 0.25) - (1.5 * iqr_kemiskinan)
+batas_atas     <- quantile(data$kemiskinan, 0.75) + (1.5 * iqr_kemiskinan)
+
+# Menyaring data untuk mendapatkan dataset yang bersih
+data_bersih <- data %>%
+  filter(kemiskinan >= batas_bawah & kemiskinan <= batas_atas)
+
+
+mean_kemiskinan <- mean(data_bersih$kemiskinan)
+sd_kemiskinan   <- sd(data_bersih$kemiskinan)
+
+hasil_akhir <- data.frame(
+  Variabel = "kemiskinan",
+  Mean_Mu  = mean_kemiskinan,
+  Median   = median(data_bersih$kemiskinan),
+  SD_Sigma = sd_kemiskinan,
+  Min      = min(data_bersih$kemiskinan),
+  Max      = max(data_bersih$kemiskinan)
+)
+
+print("=== PARAMETER DISTRIBUSI DATA AKHIR ===")
 print(hasil_akhir)
 
-# Hubungan 1: Apakah pendidikan berpengaruh ke kemiskinan?
-korelasi_pendidikan_kemiskinan <- cor(data_bersih$rata_lama_sekolah, data_bersih$kemiskinan)
-print(paste("Korelasi Pendidikan & Kemiskinan:", korelasi_pendidikan_kemiskinan))
 
-# Hubungan 2: Apakah pengangguran berpengaruh ke kemiskinan?
-korelasi_pengangguran_kemiskinan <- cor(data_bersih$pengangguran, data_bersih$kemiskinan)
-print(paste("Korelasi Pengangguran & Kemiskinan:", korelasi_pengangguran_kemiskinan))
-
-
-
-# Grafik Hubungan Pendidikan dan Kemiskinan
-plot(data_bersih$rata_lama_sekolah, data_bersih$kemiskinan,
-     main = "Hubungan Tingkat Pendidikan dengan Tingkat Kemiskinan",
-     xlab = "Rata-rata Lama Sekolah (Tahun)",
-     ylab = "Tingkat Kemiskinan (%)",
-     col = "blue", 
-     pch = 16)
-
-
-abline(lm(kemiskinan ~ rata_lama_sekolah, data = data_bersih), col = "red", lwd = 2)
-
-
-plot(data_bersih$pengangguran, data_bersih$kemiskinan,
-     main = "Hubungan Tingkat Pengangguran dengan Tingkat Kemiskinan",
-     xlab = "Tingkat Pengangguran (%)",
-     ylab = "Tingkat Kemiskinan (%)",
-     col = "darkgreen", 
-     pch = 16)
-
-abline(lm(kemiskinan ~ pengangguran, data = data_bersih), col = "red", lwd = 2)
-
-print(hasil_akhir)
-
-
-
-#Distribusi Variabel Kemiskinan
+# A. Histogram & Grafik Fungsi Kepadatan Probabilitas (PDF)
 hist(data_bersih$kemiskinan, probability = TRUE, 
-     main = "Distribusi Probabilitas Kemiskinan", 
-     xlab = "Tingkat Kemiskinan (%)", col = "lightblue", border = "white")
+     main = "Perbandingan Distribusi Peluang Kemiskinan", 
+     xlab = "Tingkat Kemiskinan (%)", col = "lightblue", border = "white",
+     ylim = c(0, max(density(data_bersih$kemiskinan)$y) * 1.2))
+
+# Kurva Densitas Empiris (Garis Merah berdasarkan data riil)
 lines(density(data_bersih$kemiskinan), col = "red", lwd = 2)
 
-#Distribusi Variabel Rata-rata Lama Sekolah
-hist(data_bersih$rata_lama_sekolah, probability = TRUE, 
-     main = "Distribusi Probabilitas Rata-rata Lama Sekolah", 
-     xlab = "Lama Sekolah (Tahun)", col = "lightgreen", border = "white")
-lines(density(data_bersih$rata_lama_sekolah), col = "red", lwd = 2)
+# Kurva Distribusi Normal Teoritis Gauss (Garis Biru Putus-putus)
+x_axis <- seq(min(data_bersih$kemiskinan), max(data_bersih$kemiskinan), length = 100)
+y_axis <- dnorm(x_axis, mean = mean_kemiskinan, sd = sd_kemiskinan)
+lines(x_axis, y_axis, col = "blue", lwd = 2, lty = 2)
 
+legend("topright", legend = c("Empiris (Data Riil)", "Teoritis (Normal Gauss)"),
+       col = c("red", "blue"), lty = c(1, 2), lwd = 2)
 
-
-# Jika titik-titik mengikuti garis merah, maka data berdistribusi normal
-qqnorm(data_bersih$kemiskinan, main = "Q-Q Plot Variabel Kemiskinan")
+# B. Q-Q Plot untuk Uji Validitas Distribusi Normal
+qqnorm(data_bersih$kemiskinan, main = "Q-Q Plot Uji Normalitas Kemiskinan")
 qqline(data_bersih$kemiskinan, col = "red", lwd = 2)
+
+
+# Kasus Skenario: Berapa peluang suatu wilayah memiliki tingkat kemiskinan di bawah 10%?
+batas_kasus <- 10
+
+# A. Probabilitas Empiris (Berdasarkan frekuensi relatif data lapangan)
+prob_empiris <- mean(data_bersih$kemiskinan < batas_kasus)
+
+# B. Probabilitas Teoritis (Berdasarkan luasan kurva Distribusi Normal / CDF)
+prob_teoritis <- pnorm(batas_kasus, mean = mean_kemiskinan, sd = sd_kemiskinan)
+
+# C. Inverse CDF (Mencari nilai kritis untuk ambang batas peluang 15% terendah)
+nilai_kritis_15 <- qnorm(0.15, mean = mean_kemiskinan, sd = sd_kemiskinan)
+
+
+cat("\n==================================================\n")
+cat("=== ANALISIS ELEMEN PROBABILITAS KEMISKINAN ===\n")
+cat("==================================================\n")
+cat("1. Peluang Empiris P(X < 10%)  :", prob_empiris, "\n")
+cat("2. Peluang Teoritis P(X < 10%) :", prob_teoritis, "\n")
+cat("3. Batas nilai kemiskinan untuk peluang kumulatif 15% terendah:", nilai_kritis_15, "%\n")
+cat("==================================================\n")
