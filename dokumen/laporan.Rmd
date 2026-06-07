@@ -130,7 +130,7 @@ Distribusi data tidak berbentuk distribusi normal. Dalam range 7.5 hingga 10.0 t
 
 Rangkuman Grafik :
 
-Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata lama sekolah. artinya ada kemungkinan tidak ada korelasi antara variabel kemiskinan dengan variabel rata lama sekolah.
+Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata lama sekolah. artinya ada kemungkinan nilai korelasi antara variabel kemiskinan dengan variabel rata lama sekolah tidak terlalu kuat.
 
 ## 3.5 Distribusi Data
 
