@@ -43,25 +43,25 @@ Dataset yang digunakan dalam analisis ini adalah `pembangunan_wilayah_missing_ou
 
 3.  tahun (Integer): Tahun pengamatan data pembangunan wilayah.
 
-4.  pdrb_perkapita (Numeric): Produk Domestik Regional Bruto (PDRB) per kapita yang                                      menggambarkan tingkat aktivitas ekonomi dan pendapatan                                     rata-rata masyarakat suatu wilayah.
+4.  pdrb_perkapita (Numeric): Produk Domestik Regional Bruto (PDRB) per kapita yang menggambarkan tingkat aktivitas ekonomi dan pendapatan rata-rata masyarakat suatu wilayah.
 
 5.  kemiskinan (Numeric): Persentase penduduk miskin pada suatu wilayah.
 
 6.  pengangguran (Numeric): Persentase tingkat pengangguran pada suatu wilayah.
 
-7.  ipm (Numeric): Indeks Pembangunan Manusia yang menggambarkan kualitas hidup masyarakat                    berdasarkan pendidikan, kesehatan, dan standar hidup.
+7.  ipm (Numeric): Indeks Pembangunan Manusia yang menggambarkan kualitas hidup masyarakat berdasarkan pendidikan, kesehatan, dan standar hidup.
 
-8.  harapan_hidup (Numeric): Rata-rata perkiraan umur yang dapat dicapai penduduk pada                                  suatu wilayah.
+8.  harapan_hidup (Numeric): Rata-rata perkiraan umur yang dapat dicapai penduduk pada suatu wilayah.
 
-9.  rata_lama_sekolah (Numeric): Rata-rata jumlah tahun pendidikan formal yang telah                                        ditempuh penduduk.
+9.  rata_lama_sekolah (Numeric): Rata-rata jumlah tahun pendidikan formal yang telah ditempuh penduduk.
 
-10. akses_internet (Numeric):Persentase masyarakat yang memiliki atau menggunakan akses                                 internet.
+10. akses_internet (Numeric):Persentase masyarakat yang memiliki atau menggunakan akses internet.
 
 11. jalan_baik (Numeric):Persentase kondisi jalan yang berada dalam kategori baik.
 
 12. air_bersih (Numeric):Persentase masyarakat yang memiliki akses terhadap air bersih.
 
-13. catatan_data (Character):Keterangan kondisi data, misalnya data normal, mengandung                                  missing value, atau outlier.
+13. catatan_data (Character):Keterangan kondisi data, misalnya data normal, mengandung missing value, atau outlier.
 
 
 Pada proyek analisis data pembangunan wilayah ini, kami memilih variabel kemiskinan dan rata_lama_sekolah sebagai fokus pembahasan. Variabel kemiskinan dan rata_lama_sekolah dipilih karena keduanya merupakan indikator penting dalam pembangunan wilayah. Variabel kemiskinan menggambarkan tingkat kesejahteraan masyarakat, sedangkan rata_lama_sekolah menggambarkan tingkat pendidikan penduduk.
@@ -172,6 +172,16 @@ Agar bisa membahas korelasi variabel lebih lanjut. Dilakukan uji coba kepada dua
 Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata lama sekolah akan dibahas lebih lanjut dibagian interpretasi.
 
 ## 3.7 Interpretasi
+
+Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata lama sekolah akan dibahas lebih lanjut dibagian interpretasi.
+
+H~0~ = 0
+
+H~1~ ≠ 0
+
+Hasil analisis :
+
+Nilai p-value melebih dari nilai yang ditentukan yaitu 0.05 (5%) sehingga bisa dinyatakan bahwa kita berhasil menolak pernyataan H0
 
 # BAB IV KESIMPULAN
 
