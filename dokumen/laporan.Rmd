@@ -20,7 +20,7 @@ Dalam pengolahan data riil terkait indikator-indikator tersebut, analis sering d
 
 ## 1.2 Tujuan
 
-Melalui proyek akhir ini mahasiswa diharapkan mampu:
+Tujuan dari analisis data pembangunan wilayah ini adalah sebagai berikut:
 
 1.  Memahami struktur dan karakteristik dataset.
 2.  Melakukan eksplorasi data menggunakan R.
@@ -35,7 +35,7 @@ Melalui proyek akhir ini mahasiswa diharapkan mampu:
 
 ## 1.3 Deskripsi Dataset
 
-Dataset yang digunakan dalam analisis ini adalah pembangunan_wilayah_missing_outlier.csv. Untuk menjawab tujuan pengamatan, analisis difokuskan pada dua variabel utama pengukur kualitas sumber daya manusia dan tenaga kerja, beserta variabel identitas wilayahnya. Berikut adalah rincian variabel yang digunakan:
+Dataset yang digunakan dalam analisis ini adalah `pembangunan_wilayah_missing_outlier.csv`. Untuk menjawab tujuan pengamatan, analisis difokuskan pada dua variabel utama pengukur kualitas sumber daya manusia dan tenaga kerja, beserta variabel identitas wilayahnya. Berikut adalah rincian variabel yang digunakan:
 
 1.  wilayah (Character):
 2.  provinsi (Character):
