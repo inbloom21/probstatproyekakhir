@@ -238,7 +238,7 @@ data %>%
          pdrb_perkapita, akses_internet, jalan_baik, air_bersih) %>%
   cor()
   
-cor.test(data$pengangguran, data$harapan_hidup, method = "pearson")
+cor.test(data$kemiskinan, data$rata_lama_sekolah, method = "pearson")
 
 
 # Analisis Probabilitas dan Distribusi Data
