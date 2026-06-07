@@ -59,34 +59,28 @@ Dataset yang digunakan dalam analisis ini adalah `pembangunan_wilayah_missing_ou
 
 Dalam pengerjaan proyek ini, beberapa perangkat lunak dan platform yang digunakan antara lain:
 
-1. R dan R Studio: Digunakan sebagai *environment* utama komputasi statistik. Modul yang dieksekusi mengandalkan *library* spesifik, yaitu:
-    - `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
-    - `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
-2. GitHub: Digunakan sebagai repositori kolaborasi untuk mengontrol versi (*version control*) kode R dan dokumen laporan.
+1.  R dan R Studio: Digunakan sebagai *environment* utama komputasi statistik. Modul yang dieksekusi mengandalkan *library* spesifik, yaitu:
+    -   `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
+    -   `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
+2.  GitHub: Digunakan sebagai repositori kolaborasi untuk mengontrol versi (*version control*) kode R dan dokumen laporan.
 
 ## 2.2 Metode Analisis
 
 Analisis data dalam laporan ini dilakukan melalui serangkaian tahapan komputasi statistik menggunakan bahasa pemrograman R. Berikut adalah tahapan metode analisis yang diterapkan:
 
-1. Statistika Deskriptif
-Pada tahap ini, dilakukan ekstraksi parameter statistik dari variabel dependen (kemiskinan) dan variabel independen (rata-rata lama sekolah dan pengangguran). Pengukuran mencakup nilai pemusatan data (Rata-rata/ *Mean* dan Nilai Tengah/ *Median*) serta penyebaran data (Nilai Minimum, Maksimum, Kuartil 1, Kuartil 3, Standar Deviasi, dan Varians).
+1.  Statistika Deskriptif Pada tahap ini, dilakukan ekstraksi parameter statistik dari variabel dependen (kemiskinan) dan variabel independen (rata-rata lama sekolah dan pengangguran). Pengukuran mencakup nilai pemusatan data (Rata-rata/ *Mean* dan Nilai Tengah/ *Median*) serta penyebaran data (Nilai Minimum, Maksimum, Kuartil 1, Kuartil 3, Standar Deviasi, dan Varians).
 
-2. Pra-pemrosesan Data (*Data Pre-processing*)
-Dataset mentah sering kali memiliki ketidaksempurnaan, sehingga perlu dilakukan pembersihan data yang mencakup dua penanganan utama:
-  
-    - Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
+2.  Pra-pemrosesan Data (*Data Pre-processing*) Dataset mentah sering kali memiliki ketidaksempurnaan, sehingga perlu dilakukan pembersihan data yang mencakup dua penanganan utama:
 
-    - Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
+    -   Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
 
+    -   Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
 
-3. Visualisasi Data
-Eksplorasi visual dilakukan menggunakan pustaka `ggplot2` untuk melihat pola dan distribusi data secara lebih intuitif. Visualisasi yang dibuat meliputi *Bar chart* (untuk membandingkan jumlah laporan antar tahun dan provinsi), *Boxplot* (untuk melihat penyebaran Indeks Pembangunan Manusia), serta *Scatter plot* (untuk melihat sebaran awal hubungan antar variabel).
+3.  Visualisasi Data Eksplorasi visual dilakukan menggunakan pustaka `ggplot2` untuk melihat pola dan distribusi data secara lebih intuitif. Visualisasi yang dibuat meliputi *Bar chart* (untuk membandingkan jumlah laporan antar tahun dan provinsi), *Boxplot* (untuk melihat penyebaran Indeks Pembangunan Manusia), serta *Scatter plot* (untuk melihat sebaran awal hubungan antar variabel).
 
-4. Analisis Korelasi
-Untuk menguji hipotesis hubungan antar variabel, dilakukan uji korelasi Pearson. Uji ini bertujuan untuk mengetahui seberapa kuat dan ke arah mana (positif atau negatif) hubungan linier yang terjadi antara tingkat pendidikan (rata-rata lama sekolah) dengan tingkat kemiskinan, serta persentase pengangguran dengan kemiskinan. Hasil analisis numerik ini juga divisualisasikan dengan garis regresi pada *Scatter plot*.
+4.  Analisis Korelasi Untuk menguji hipotesis hubungan antar variabel, dilakukan uji korelasi Pearson. Uji ini bertujuan untuk mengetahui seberapa kuat dan ke arah mana (positif atau negatif) hubungan linier yang terjadi antara tingkat pendidikan (rata-rata lama sekolah) dengan tingkat kemiskinan, serta persentase pengangguran dengan kemiskinan. Hasil analisis numerik ini juga divisualisasikan dengan garis regresi pada *Scatter plot*.
 
-5. Analisis Probabilitas dan Distribusi Data
-Tahap terakhir adalah melakukan uji kenormalan distribusi pada variabel yang dianalisis. Pengujian dilakukan melalui visualisasi grafis berlapis, yaitu dengan memetakan kurva densitas probabilitas di atas histogram, serta menggunakan *Quantile-Quantile Plot* (Q-Q Plot) untuk melihat apakah sebaran titik data sejajar dengan garis normal teoritis.
+5.  Analisis Probabilitas dan Distribusi Data Tahap terakhir adalah melakukan uji kenormalan distribusi pada variabel yang dianalisis. Pengujian dilakukan melalui visualisasi grafis berlapis, yaitu dengan memetakan kurva densitas probabilitas di atas histogram, serta menggunakan *Quantile-Quantile Plot* (Q-Q Plot) untuk melihat apakah sebaran titik data sejajar dengan garis normal teoritis.
 
 # BAB III HASIL DAN PEMBAHASAN
 
@@ -142,11 +136,11 @@ Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata
 
 ## 3.6 Korelasi
 
-Untuk mencari korelasi setiap variabel dengan variabel lainnya. dilakukan uji coba dengan fungsi cor(). cor() adalah fungsi bawaan dari R yang berfungsi menghitung korelasi setiap variabel yang ada di dataset dengan variabel lainnya.
+Dilakukan uji coba korelasi setiap variabel dengan variabel lainnya menggunakan fungsi **cor()**. fungsi **cor()** adalah sebuah fungsi bawaan dari R untuk menghitung korelasi variabel.
 
 ![](images/Korelasi1.PNG)
 
-Untuk mencari korelasi lebih lanjut terkait dengan dua variabel. dilakukan uji coba dengan fungsi cor.test(). cor.test() adalah fungsi bawaan dari R yang befungsi menghitung korelasi antara dua variabel dengan informasi lebih detail. uji coba korelasi menggunakan metode Pearson.
+Agar bisa membahas korelasi variabel lebih lanjut. Dilakukan uji coba kepada dua variabel terpilih yaitu **kemiskinan** dan **rata_lama_sekolah** menggunakan fungsi **cor.test()**. fungsi **cor.test()** adalah sebuah fungsi seperti **cor()** tetapi yang membedakan adalah fungsi **cor.test()** memberikan informasi lebih detail
 
 ## 3.7 Interpretasi
 
