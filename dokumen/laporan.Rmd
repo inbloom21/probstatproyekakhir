@@ -76,8 +76,8 @@ Kedua variabel ini dipilih karena pendidikan dan kesejahteraan memiliki hubungan
 Dalam pengerjaan proyek ini, beberapa perangkat lunak dan platform yang digunakan antara lain:
 
 1.  R dan R Studio: Digunakan sebagai *environment* utama komputasi statistik. Modul yang dieksekusi mengandalkan *library* spesifik, yaitu:
-    -   `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
-    -   `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
+    - `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
+    - `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
 2.  GitHub: Digunakan sebagai repositori kolaborasi untuk mengontrol versi (*version control*) kode R dan dokumen laporan.
 
 ## 2.2 Metode Analisis
@@ -88,9 +88,9 @@ Analisis data dalam laporan ini dilakukan melalui serangkaian tahapan komputasi 
 
 2.  Pra-pemrosesan Data (*Data Pre-processing*) Dataset mentah sering kali memiliki ketidaksempurnaan, sehingga perlu dilakukan pembersihan data yang mencakup dua penanganan utama:
 
-    -   Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
+    - Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
 
-    -   Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
+    - Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
 
 3.  Visualisasi Data Eksplorasi visual dilakukan menggunakan pustaka `ggplot2` untuk melihat pola dan distribusi data secara lebih intuitif. Visualisasi yang dibuat meliputi *Bar chart* (untuk membandingkan jumlah laporan antar tahun dan provinsi), *Boxplot* (untuk melihat penyebaran Indeks Pembangunan Manusia), serta *Scatter plot* (untuk melihat sebaran awal hubungan antar variabel).
 
@@ -170,37 +170,29 @@ Analisis Fungsi Kepadatan Probabilitas (Probability Density Function - PDF)
 
 Untuk memetakan sebaran peluang dari tingkat kemiskinan wilayah, fungsi kerapatan probabilitas kontinu divisualisasikan melalui grafik histogram densitas. Penggunaan argumen probability = TRUE di dalam RStudio secara otomatis mengubah skala frekuensi mentah menjadi nilai kepekatan peluang (density). Melalui pendekatan ini, total seluruh luasan area di bawah kurva dijamin bernilai tepat 1 (memenuhi hukum aksioma probabilitas sebesar 100%).
 
-![](../gambar/Perbandingan Distribusi Peluang Kemiskinan.png)
+![](../gambar/Perbandingan%20Distribusi%20Peluang%20Kemiskinan.png)
 
-Di dalam grafik "Perbandingan Distribusi Peluang Kemiskinan", dibentuk dua pemodelan kurva untuk melihat kecocokan (goodness of fit) data:
-1.	Kurva Densitas Empiris (Garis Merah): Grafik ini merepresentasikan bentuk fungsi peluang riil dari data yang dikumpulkan langsung di lapangan.
-2.	Kurva Distribusi Normal Teoritis Gauss (Garis Biru Putus-putus): Kurva ini merupakan visualisasi fungsi kepadatan peluang dari model matematika Distribusi Normal dengan spesifikasi komponen N(13.64, 6.61²) berdasarkan nilai parameter riil yang sudah diekstrak sebelumnya.
+Di dalam grafik "Perbandingan Distribusi Peluang Kemiskinan", dibentuk dua pemodelan kurva untuk melihat kecocokan (goodness of fit) data: 1. Kurva Densitas Empiris (Garis Merah): Grafik ini merepresentasikan bentuk fungsi peluang riil dari data yang dikumpulkan langsung di lapangan. 2. Kurva Distribusi Normal Teoritis Gauss (Garis Biru Putus-putus): Kurva ini merupakan visualisasi fungsi kepadatan peluang dari model matematika Distribusi Normal dengan spesifikasi komponen N(13.64, 6.61²) berdasarkan nilai parameter riil yang sudah diekstrak sebelumnya.
 
 Interpretasi: Berdasarkan hasil eksekusi grafik, terlihat bahwa garis merah empiris bergerak berhimpitan dan membentuk pola lonceng simetris (bell-shaped) yang sangat selaras dengan garis biru putus-putus teoretis. Hal ini membuktikan secara empiris bahwa sebaran data tingkat kemiskinan di wilayah-wilayah tersebut telah mengikuti hukum Distribusi Normal Kontinu secara presisi.
 
-Keselarasan Distribusi Menggunakan Q-Q Plot
-Untuk melakukan validasi secara lebih rigid apakah sebaran peluang variabel kemiskinan benar-benar adaptif terhadap model Distribusi Normal Gaussian, dilakukan pengujian visual menggunakan Quantile-Quantile Plot (Q-Q Plot).
+Keselarasan Distribusi Menggunakan Q-Q Plot Untuk melakukan validasi secara lebih rigid apakah sebaran peluang variabel kemiskinan benar-benar adaptif terhadap model Distribusi Normal Gaussian, dilakukan pengujian visual menggunakan Quantile-Quantile Plot (Q-Q Plot).
 
-![](../gambar/Uji Normalitas Kemiskinan.png)
+![](../gambar/Uji%20Normalitas%20Kemiskinan.png)
 
-Melalui grafik Q-Q Plot yang dieksekusi, sumbu plot memetakan sebaran kuartil data riil (Sample Quantiles) terhadap kuartil ideal teoretis (Theoretical Quantiles). Hasil visualisasi menunjukkan bahwa kumpulan titik koordinat data (lingkaran hitam) menyebar dengan merapat, konsisten, dan menempel langsung di sepanjang garis lurus diagonal berwarna merah (qqline).
-Walaupun dijumpai adanya sedikit kerenggangan minor pada ujung ekor distribusi (tails) yang mencerminkan sisa nilai batas atas maksimal 25.00%, secara keseluruhan pola visual ini sah memenuhi kriteria Distribusi Normal. Oleh karena itu, penerapan rumus peluang berbasis statistik parametrik pada data ini dapat dipertanggungjawabkan akurasinya.
+Melalui grafik Q-Q Plot yang dieksekusi, sumbu plot memetakan sebaran kuartil data riil (Sample Quantiles) terhadap kuartil ideal teoretis (Theoretical Quantiles). Hasil visualisasi menunjukkan bahwa kumpulan titik koordinat data (lingkaran hitam) menyebar dengan merapat, konsisten, dan menempel langsung di sepanjang garis lurus diagonal berwarna merah (qqline). Walaupun dijumpai adanya sedikit kerenggangan minor pada ujung ekor distribusi (tails) yang mencerminkan sisa nilai batas atas maksimal 25.00%, secara keseluruhan pola visual ini sah memenuhi kriteria Distribusi Normal. Oleh karena itu, penerapan rumus peluang berbasis statistik parametrik pada data ini dapat dipertanggungjawabkan akurasinya.
 
 Perhitungan Unsur Probabilitas Matematis Kontinu
 
-Setelah model distribusi terbukti valid berdistribusi normal, pengujian dilakukan pada sebuah skenario kasus makro: Berapakah peluang ditemukannya wilayah yang memiliki tingkat kemiskinan di bawah angka 10% atau ditulis secara matematis sebagai P(X < 10%)?
+Setelah model distribusi terbukti valid berdistribusi normal, pengujian dilakukan pada sebuah skenario kasus makro: Berapakah peluang ditemukannya wilayah yang memiliki tingkat kemiskinan di bawah angka 10% atau ditulis secara matematis sebagai P(X \< 10%)?
 
 Melalui kalkulasi komputasi numerik pada objek R di bagian akhir kode, diperoleh hasil analisis elemen probabilitas sebagai berikut:
 
-•	Probabilitas Empiris P(X < 10%) = 0.3379
-Nilai peluang ini didapatkan lewat pendekatan frekuensi relatif pada data sampel lapangan. Angka ini bermakna bahwa probabilitas riil untuk menemukan wilayah dengan tingkat kemiskinan di bawah 10% di dalam database saat ini adalah sebesar 33.79%.
+• Probabilitas Empiris P(X \< 10%) = 0.3379 Nilai peluang ini didapatkan lewat pendekatan frekuensi relatif pada data sampel lapangan. Angka ini bermakna bahwa probabilitas riil untuk menemukan wilayah dengan tingkat kemiskinan di bawah 10% di dalam database saat ini adalah sebesar 33.79%.
 
-•	Probabilitas Teoritis P(X < 10%) = 0.2910
-Nilai ini diperoleh melalui integrasi Fungsi Distribusi Kumulatif (Cumulative Distribution Function - CDF) menggunakan fungsi pnorm(). Secara teoretis, luasan wilayah peluang di bawah kurva normal dari batas terkecil hingga titik x = 10 adalah sebesar 29.10%. Kedekatan nilai antara probabilitas empiris (33.79%) dan teoretis (29.10%) ini membuktikan tingkat presisi pemodelan distribusi yang sangat tinggi.
+• Probabilitas Teoritis P(X \< 10%) = 0.2910 Nilai ini diperoleh melalui integrasi Fungsi Distribusi Kumulatif (Cumulative Distribution Function - CDF) menggunakan fungsi pnorm(). Secara teoretis, luasan wilayah peluang di bawah kurva normal dari batas terkecil hingga titik x = 10 adalah sebesar 29.10%. Kedekatan nilai antara probabilitas empiris (33.79%) dan teoretis (29.10%) ini membuktikan tingkat presisi pemodelan distribusi yang sangat tinggi.
 
-•	Analisis Nilai Kritis Invers CDF (Persentil 15 Terendah) = 6.79%
-Dengan memanfaatkan fungsi inversi probabilitas qnorm(), kita dapat menentukan nilai batas fisik berdasarkan kuantum peluang yang diinginkan. Untuk kelompok 15% wilayah dengan tingkat kemiskinan paling rendah (paling sejahtera), batas atas instrumen kemiskinannya berada tepat di angka 6.79%.
-
+• Analisis Nilai Kritis Invers CDF (Persentil 15 Terendah) = 6.79% Dengan memanfaatkan fungsi inversi probabilitas qnorm(), kita dapat menentukan nilai batas fisik berdasarkan kuantum peluang yang diinginkan. Untuk kelompok 15% wilayah dengan tingkat kemiskinan paling rendah (paling sejahtera), batas atas instrumen kemiskinannya berada tepat di angka 6.79%.
 
 ## 3.6 Korelasi
 
@@ -230,9 +222,25 @@ Nilai p-value melebih dari nilai yang ditentukan yaitu 0.05 (5%) sehingga bisa d
 
 ------------------------------------------------------------------------
 
-Berdasarkan hasil analisis data pembangunan wilayah menggunakan R, diperoleh bahwa dataset mengandung missing value dan outlier yang perlu ditangani sebelum dilakukan analisis lebih lanjut. Missing value ditangani menggunakan metode median imputation, sedangkan outlier ditangani dengan menggunakan metode trimming. Hasil statistika deskriptif dan visualisasi menunjukkan adanya variasi kondisi pembangunan antarwilayah pada indikator ekonomi, pendidikan, dan kesejahteraan masyarakat.
+## 4.1 Kesimpulan Utama
 
-Analisis korelasi menunjukkan bahwa tingkat kemiskinan memiliki hubungan dengan faktor pendidikan dan pengangguran, meskipun kekuatan hubungannya tidak terlalu besar. Temuan ini mengindikasikan bahwa pembangunan wilayah dipengaruhi oleh berbagai faktor yang saling berkaitan, tidak hanya satu indikator tertentu. Oleh karena itu, peningkatan kualitas pendidikan, perluasan kesempatan kerja, serta pemerataan pembangunan menjadi aspek penting dalam mendukung pembangunan wilayah yang lebih baik dan berkelanjutan.
+Berdasarkan seluruh rangkaian analisis statistik yang telah dilakukan terhadap dataset pembangunan wilayah menggunakan bahasa pemrograman R, diperoleh bahwa dataset mengandung *missing value* dan *outlier* yang perlu ditangani sebelum analisis lebih lanjut dilakukan. *Missing value* ditangani menggunakan metode *median imputation* karena sifatnya yang tidak mudah terpengaruh oleh nilai ekstrem, sedangkan *outlier* dieliminasi melalui metode *trimming* berbasis *Interquartile Range* (IQR). Proses pembersihan data ini terbukti efektif, ditandai dengan penurunan nilai maksimum tingkat kemiskinan secara signifikan dari 67,53% menjadi 25,00%.
+
+Hasil statistika deskriptif dan visualisasi data menunjukkan adanya variasi kondisi pembangunan yang cukup mencolok antarwilayah, terutama pada indikator ekonomi (PDRB per kapita) dan kesejahteraan (tingkat kemiskinan). Pengujian distribusi probabilitas pada variabel kemiskinan membuktikan bahwa setelah pembersihan data, sebaran tingkat kemiskinan mendekati distribusi normal, yang dikonfirmasi melalui grafik histogram densitas dan Q-Q Plot. Probabilitas empiris wilayah dengan tingkat kemiskinan di bawah 10% adalah sebesar 33,79%, sedangkan probabilitas teoretis berbasis distribusi normal Gaussian menghasilkan nilai yang berdekatan, yakni 29,10%.
+
+Hasil uji korelasi Pearson menggunakan fungsi cor.test() menunjukkan bahwa nilai p-value melebihi ambang batas signifikansi α = 0,05, sehingga H₀ gagal ditolak. Hal ini berarti tidak terdapat cukup bukti statistik untuk menyatakan adanya hubungan yang signifikan antara variabel kemiskinan dan rata-rata lama sekolah pada dataset ini.
+
+## 4.2 Insight
+
+Temuan analisis mengindikasikan bahwa pembangunan wilayah di Indonesia masih diwarnai oleh kesenjangan yang cukup nyata antara provinsi di Pulau Jawa dan wilayah luar Jawa. Selain itu, kehadiran *missing value* dan *outlier* dalam dataset mencerminkan kondisi pengumpulan data statistik di lapangan yang belum sepenuhnya sempurna, sehingga menegaskan bahwa tahapan data *pre-processing* merupakan langkah yang tidak dapat dilewati sebelum analisis lebih lanjut dilakukan.
+
+Meskipun uji korelasi antara kemiskinan dan rata-rata lama sekolah tidak menghasilkan signifikansi statistik, arah hubungannya tetap selaras dengan teori. Ketiadaan signifikansi ini kemungkinan dipengaruhi oleh ukuran sampel yang terbatas serta adanya faktor-faktor lain yang turut berperan seperti akses internet, kondisi infrastruktur, dan kualitas layanan kesehatan yang juga memengaruhi tingkat kemiskinan secara bersamaan. Hal ini memperkuat pemahaman bahwa kemiskinan merupakan fenomena yang dipengaruhi oleh banyak faktor sehingga tidak dapat dijelaskan hanya oleh satu indikator pembangunan.
+
+## 4.3 Saran
+
+Pemerintah daerah dan pemangku kebijakan disarankan untuk memprioritaskan investasi di sektor pendidikan, khususnya peningkatan rata-rata lama sekolah di wilayah yang masih berada di bawah rata-rata nasional. Secara bersamaan, pemerataan infrastruktur dasar, akses internet, dan layanan kesehatan di wilayah tertinggal perlu terus didorong sebagai upaya pendukung dalam mengurangi tingkat kemiskinan, mengingat pembangunan wilayah merupakan persoalan yang memerlukan kebijakan terpadu dari berbagai sektor.
+
+Untuk keperluan analisis lanjutan, uji regresi berganda (*multiple linear regression*) yang melibatkan seluruh variabel independen secara sekaligus sangat direkomendasikan guna memperoleh gambaran yang lebih lengkap mengenai faktor-faktor yang memengaruhi kemiskinan.
 
 # LAMPIRAN
 
