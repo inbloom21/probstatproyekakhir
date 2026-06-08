@@ -185,7 +185,7 @@ Analisis Fungsi Kepadatan Probabilitas (Probability Density Function - PDF)
 
 Untuk memetakan sebaran peluang dari tingkat kemiskinan wilayah, fungsi kerapatan probabilitas kontinu divisualisasikan melalui grafik histogram densitas. Penggunaan argumen probability = TRUE di dalam RStudio secara otomatis mengubah skala frekuensi mentah menjadi nilai kepekatan peluang (density). Melalui pendekatan ini, total seluruh luasan area di bawah kurva dijamin bernilai tepat 1 (memenuhi hukum aksioma probabilitas sebesar 100%).
 
-![](images/Perbandingan Distribusi Peluang Kemiskinan-01.png)
+![](images/Perbandingan%20Distribusi%20Peluang%20Kemiskinan-01.png)
 
 Di dalam grafik "Perbandingan Distribusi Peluang Kemiskinan", dibentuk dua pemodelan kurva untuk melihat kecocokan (goodness of fit) data: 1. Kurva Densitas Empiris (Garis Merah): Grafik ini merepresentasikan bentuk fungsi peluang riil dari data yang dikumpulkan langsung di lapangan. 2. Kurva Distribusi Normal Teoritis Gauss (Garis Biru Putus-putus): Kurva ini merupakan visualisasi fungsi kepadatan peluang dari model matematika Distribusi Normal dengan spesifikasi komponen N(13.64, 6.61²) berdasarkan nilai parameter riil yang sudah diekstrak sebelumnya.
 
