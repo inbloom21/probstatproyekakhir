@@ -27,16 +27,6 @@ Dalam pengolahan data riil terkait indikator-indikator tersebut, analis sering d
 ## Tujuan
 
 Tujuan dari analisis data pembangunan wilayah ini adalah sebagai berikut:
-
-<<<<<<< HEAD
-## Missing Values
-```{r data, echo=TRUE}
-summary(data)
-```
-
-
-## Slide with R Output
-=======
 1.  Memahami struktur dan karakteristik dataset.
 2.  Melakukan eksplorasi data menggunakan R.
 3.  Mengidentifikasi missing value dan outlier.
@@ -47,7 +37,6 @@ summary(data)
 8.  Menarik kesimpulan berbasis data.
 9.  Menyusun laporan ilmiah sederhana.
 10. Mengkomunikasikan hasil analisis secara sistematis.
->>>>>>> 94b4110348187fe33f06bc1fb4908d867e7fac7c
 
 ## Deskripsi Dataset
 
@@ -68,8 +57,6 @@ Dataset yang digunakan dalam analisis ini adalah `pembangunan_wilayah_missing_ou
 6.  pengangguran (Numeric): Persentase tingkat pengangguran pada suatu wilayah.
 
 7.  ipm (Numeric): Indeks Pembangunan Manusia yang menggambarkan kualitas hidup masyarakat berdasarkan pendidikan, kesehatan, dan standar hidup.
-
-## Deskripsi Dataset
 
 8.  harapan_hidup (Numeric): Rata-rata perkiraan umur yang dapat dicapai penduduk pada suatu wilayah.
 
