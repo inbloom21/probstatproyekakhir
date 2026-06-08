@@ -95,6 +95,11 @@ Dalam pengerjaan proyek ini, beberapa perangkat lunak dan platform yang digunaka
     -   `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
 2.  GitHub: Digunakan sebagai repositori kolaborasi untuk mengontrol versi (*version control*) kode R dan dokumen laporan.
 
+```{r echo=TRUE}
+library(dplyr)
+library(ggplot2)
+```
+
 ## 2.2 Metode Analisis
 
 Analisis data dalam laporan ini dilakukan melalui serangkaian tahapan komputasi statistik menggunakan bahasa pemrograman R. Berikut adalah tahapan metode analisis yang diterapkan:
@@ -127,17 +132,124 @@ Dilihat dari ukuran penyebaran data, variabel pdrb_perkapita juga memiliki stand
 
 Selain itu, terdapat indikasi bahwa distribusi data pdrb_perkapita tidak sepenuhnya normal. Hal ini terlihat dari rentang data yang sangat lebar, yaitu dari 15.031.581 hingga 1.774.545.000, serta adanya perbedaan yang cukup besar antara nilai minimum dan maksimum. Kondisi tersebut mengindikasikan kemungkinan adanya nilai ekstrem (outlier) yang menyebabkan distribusi data menjadi tidak simetris.
 
+```{r echo=TRUE}
+# memahami dataset
+data <- read.csv("../dataset/pembangunan_wilayah_missing_outlier.csv")
+str(data)
+head(data)
+dim(data)
+
+summary(data)
+sapply(data, class)
+
+options(scipen = 999)
+
+numerik <- data[sapply(data, is.numeric)]
+numerik <- numerik %>% select(-tahun)
+
+statistik_deskriptif <- data.frame(
+  Variabel = names(select(numerik, where(is.numeric))),
+  Mean = sapply(select(numerik, where(is.numeric)), mean, na.rm = TRUE),
+  Median = sapply(select(numerik, where(is.numeric)), median, na.rm = TRUE),
+  Min = sapply(select(numerik, where(is.numeric)), min, na.rm = TRUE),
+  Q1 = sapply(select(numerik, where(is.numeric)), quantile, probs = 0.25, na.rm = TRUE),
+  Q2 = sapply(select(numerik, where(is.numeric)), quantile, probs = 0.50, na.rm = TRUE),
+  Q3 = sapply(select(numerik, where(is.numeric)), quantile, probs = 0.75, na.rm = TRUE),
+  Max = sapply(select(numerik, where(is.numeric)), max, na.rm = TRUE),
+  SD = sapply(select(numerik, where(is.numeric)), sd, na.rm = TRUE),
+  Varians = sapply(select(numerik, where(is.numeric)), var, na.rm = TRUE)
+)
+
+statistik_deskriptif
+```
+
 ## 3.2 *Missing Value*
 
 *Missing value* adalah nilai yang dimaksudkan untuk didapatkan saat pengumpulan data, namun tidak berhasil didapatkan karena alasan tertentu. *Missing value* dapat muncul karena responden tidak menjawab semua pertanyaan di kuisioner, kesalahan pengukuran, kesalahan proses data entri, dan lain-lain (Kaiser 2014). Untuk mengatasi *missing value*, dibutuhkan metode penanganan *missing value*.
 
 Salah satu metode penanganan *missing value* adalah *median imputation*. *Median imputation* adalah metode mengganti *missing value* dengan nilai median dari variabel yang bersangkutan pada dataset (Alam *et al*. 2023). Pada dataset yang kami teliti, terdapat *missing value* pada beberapa variabel yang akan ditangani. Kami mencari nilai median dari masing-masing variabel dan mengisi nilai median tersebut pada bagian yang hilang.
 
+```{r echo=TRUE}
+missing_value <- colSums(is.na(data))
+missing_value
+
+data <- data %>%
+  mutate(across(where(is.numeric), 
+                ~ ifelse(is.na(.), median(., na.rm = TRUE), .)))
+
+colSums(is.na(data))
+```
+
 ## 3.3 *Outlier*
 
 *Outlier* adalah nilai ekstrem yang secara tidak normal berada diluar pola distribusi keseluruhan suatu variabel (Kwak dan Kim 2017). Untuk menangani *outlier* tersebut, kami menggunakan metode *trimming*. *Trimming* adalah metode menghapus *outlier* dari dataset. Metode tersebut dipilih karena jumlah outlier tidak terlalu banyak, sehingga tidak akan terlalu memengaruhi dataset ketika *outlier* dipangkas
 
 Pada dataset yang kami teliti, terdapat total 15 *outlier* yang tersebar di beberapa variabel. Secara rinci, variabel pdrb_perkapita memiliki 5 *outlier*, variabel kemiskinan memiliki 5 *outlier*, dan variabel pengangguran memiliki 5 *outlier*. Semua data *outlier* tersebut dipangkas sehingga jumlah kolom pada dataset berkurang dari 2500 menjadi 2485.
+
+```{r echo=TRUE}
+boxplot(data$pdrb_perkapita,
+        main = "Boxplot PDRB per Kapita",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$kemiskinan,
+        main = "Boxplot Kemiskinan",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$pengangguran,
+        main = "Boxplot Pengangguran",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$ipm,
+        main = "Boxplot IPM",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$harapan_hidup,
+        main = "Boxplot Harapan Hidup",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$rata_lama_sekolah,
+        main = "Boxplot Rata-rata Lama Sekolah",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$akses_internet,
+        main = "Boxplot Akses Internet",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$jalan_baik,
+        main = "Boxplot Jalan Baik",
+        ylab = "Nilai",
+        col = "Red")
+
+boxplot(data$air_bersih,
+        main = "Boxplot Air Bersih",
+        ylab = "Nilai",
+        col = "Red")
+
+iqr_pdrb <- IQR(data$pdrb_perkapita)
+batas_bawah <- quantile(data$pdrb_perkapita, 0.25) - (1.5 * iqr_pdrb)
+batas_atas <- quantile(data$pdrb_perkapita, 0.75) + (1.5 * iqr_pdrb)
+data <- data %>%
+  filter(pdrb_perkapita >= batas_bawah & pdrb_perkapita <= batas_atas)
+
+iqr_kemiskinan <- IQR(data$kemiskinan)
+batas_bawah <- quantile(data$kemiskinan, 0.25) - (1.5 * iqr_kemiskinan)
+batas_atas <- quantile(data$kemiskinan, 0.75) + (1.5 * iqr_kemiskinan)
+data <- data %>%
+  filter(kemiskinan >= batas_bawah & kemiskinan <= batas_atas)
+
+iqr_datapengangguran <- IQR(data$pengangguran)
+batas_bawah <- quantile(data$pengangguran, 0.25) - (1.5 * iqr_datapengangguran)
+batas_atas <- quantile(data$pengangguran, 0.75) + (1.5 * iqr_datapengangguran)
+data <- data %>%
+  filter(pengangguran >= batas_bawah & pengangguran <= batas_atas)
+```
 
 ## 3.4 Visualisasi
 
@@ -213,11 +325,19 @@ Melalui kalkulasi komputasi numerik pada objek R di bagian akhir kode, diperoleh
 
 Dilakukan uji coba korelasi setiap variabel dengan variabel lainnya menggunakan fungsi **cor()**. fungsi **cor()** adalah sebuah fungsi bawaan dari R untuk menghitung korelasi variabel.
 
-![](images/Korelasi1.PNG)
+```{r echo=TRUE}
+data %>% 
+  select(tahun, kemiskinan, pengangguran, harapan_hidup, ipm, rata_lama_sekolah, 
+         pdrb_perkapita, akses_internet, jalan_baik, air_bersih) %>%
+  cor()
+```
 
 Agar bisa membahas korelasi variabel lebih lanjut. Dilakukan uji coba kepada dua variabel terpilih yaitu **kemiskinan** dan **rata_lama_sekolah** menggunakan fungsi **cor.test()**. fungsi **cor.test()** adalah sebuah fungsi seperti **cor()** tetapi yang membedakan adalah fungsi **cor.test()** memberikan informasi lebih detail.
 
-![](images/Korelasi2.PNG)
+```{r echo=TRUE}
+
+cor.test(data$pengangguran, data$harapan_hidup, method = "pearson")
+```
 
 Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata lama sekolah akan dibahas lebih lanjut dibagian interpretasi.
 
