@@ -1,5 +1,5 @@
 ---
-title: Analisis Pengaruh Kemiskinan dan Rata Lama Sekolah Terhadap Pembanguna Wilayah
+title: Analisis Pengaruh Kemiskinan dan Rata Lama Sekolah Terhadap Pembangunan Wilayah
   di Indonesia
 output:
   powerpoint_presentation: default
@@ -8,10 +8,6 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-```
-
-```{r include=FALSE}
-data <- read.csv("../dataset/pembangunan_wilayah_missing_outlier.csv")
 ```
 
 ## Latar belakang
