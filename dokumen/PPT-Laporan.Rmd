@@ -1,5 +1,5 @@
 ---
-title: "Laporan"
+title: "Analisis Pengaruh Kemiskinan dan Rata Lama Sekolah Terhadap Pembanguna Wilayah di Indonesia"
 output: powerpoint_presentation
 ---
 
@@ -24,12 +24,11 @@ Teori human capital atau modal manusia menegaskan bahwa pendidikan formal merupa
 
 Dalam pengolahan data riil terkait indikator-indikator tersebut, analis sering dihadapkan pada masalah kualitas data, seperti adanya data yang hilang (missing value) atau nilai anomali yang ekstrem (outlier). Oleh karena itu, proyek ini disusun untuk melakukan analisis statistika secara komprehensif menggunakan bahasa pemrograman R. Evaluasi difokuskan pada penerapan statistika deskriptif, penanganan ketidaksempurnaan data, hingga pembuktian statistik mengenai korelasi antara rata-rata lama sekolah dan tingkat pengangguran terhadap persentase kemiskinan di berbagai wilayah.
 
-## Slide with Bullets
+## Tujuan
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+Tujuan dari analisis data pembangunan wilayah ini adalah sebagai berikut:
 
+<<<<<<< HEAD
 ## Missing Values
 ```{r data, echo=TRUE}
 summary(data)
@@ -37,14 +36,49 @@ summary(data)
 
 
 ## Slide with R Output
+=======
+1.  Memahami struktur dan karakteristik dataset.
+2.  Melakukan eksplorasi data menggunakan R.
+3.  Mengidentifikasi missing value dan outlier.
+4.  Melakukan statistika deskriptif.
+5.  Membuat visualisasi data yang informatif.
+6.  Menggunakan konsep probabilitas dan distribusi data.
+7.  Melakukan analisis hubungan antar variabel.
+8.  Menarik kesimpulan berbasis data.
+9.  Menyusun laporan ilmiah sederhana.
+10. Mengkomunikasikan hasil analisis secara sistematis.
+>>>>>>> 94b4110348187fe33f06bc1fb4908d867e7fac7c
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
+## Deskripsi Dataset
 
-## Slide with Plot
+Dataset yang digunakan dalam analisis ini adalah `pembangunan_wilayah_missing_outlier.csv`. Untuk menjawab tujuan pengamatan, analisis difokuskan pada dua variabel utama pengukur kualitas sumber daya manusia dan tenaga kerja, beserta variabel identitas wilayahnya. Berikut adalah rincian variabel yang digunakan:
 
-```{r pressure}
-plot(pressure)
-```
+1.  wilayah (Character): Nama kabupaten/kota yang menjadi objek pengamatan.
 
+2.  provinsi (Character): Nama provinsi tempat wilayah berada.
+
+3.  tahun (Integer): Tahun pengamatan data pembangunan wilayah.
+
+## Deskripsi Dataset
+
+4.  pdrb_perkapita (Numeric): Produk Domestik Regional Bruto (PDRB) per kapita yang menggambarkan tingkat aktivitas ekonomi dan pendapatan rata-rata masyarakat suatu wilayah.
+
+5.  kemiskinan (Numeric): Persentase penduduk miskin pada suatu wilayah.
+
+6.  pengangguran (Numeric): Persentase tingkat pengangguran pada suatu wilayah.
+
+7.  ipm (Numeric): Indeks Pembangunan Manusia yang menggambarkan kualitas hidup masyarakat berdasarkan pendidikan, kesehatan, dan standar hidup.
+
+## Deskripsi Dataset
+
+8.  harapan_hidup (Numeric): Rata-rata perkiraan umur yang dapat dicapai penduduk pada suatu wilayah.
+
+9.  rata_lama_sekolah (Numeric): Rata-rata jumlah tahun pendidikan formal yang telah ditempuh penduduk.
+
+10. akses_internet (Numeric):Persentase masyarakat yang memiliki atau menggunakan akses internet.
+
+11. jalan_baik (Numeric):Persentase kondisi jalan yang berada dalam kategori baik.
+
+12. air_bersih (Numeric):Persentase masyarakat yang memiliki akses terhadap air bersih.
+
+13. catatan_data (Character):Keterangan kondisi data, misalnya data normal, mengandung missing value, atau outlier.
