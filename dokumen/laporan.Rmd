@@ -124,7 +124,7 @@ Analisis data dalam laporan ini dilakukan melalui serangkaian tahapan komputasi 
 
 ## 3.1 Statistika Deskriptif
 
-Analisis statistika deskriptif dilakukan terhadap seluruh variabel numerik dalam dataset, yaitu tahun, pdrb_perkapita, kemiskinan, pengangguran, ipm, harapan_hidup, rata_lama_sekolah, akses_internet, jalan_baik, dan air_bersih. Statistik yang dihitung meliputi mean, median, minimum, maksimum, kuartil, standar deviasi, dan varians.
+Analisis statistika deskriptif dilakukan terhadap seluruh variabel numerik dalam dataset, yaitu pdrb_perkapita, kemiskinan, pengangguran, ipm, harapan_hidup, rata_lama_sekolah, akses_internet, jalan_baik, dan air_bersih. Statistik yang dihitung meliputi mean, median, minimum, maksimum, kuartil, standar deviasi, dan varians.
 
 Berdasarkan hasil analisis, variabel pdrb_perkapita memiliki nilai rata-rata (mean) tertinggi, yaitu sebesar 135.650.500. Hal ini menunjukkan bahwa nilai PDRB per kapita memiliki skala yang jauh lebih besar dibandingkan variabel numerik lainnya dalam dataset.
 
