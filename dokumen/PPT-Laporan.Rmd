@@ -1,5 +1,5 @@
 ---
-title: Analisis Pengaruh Kemiskinan dan Rata Lama Sekolah Terhadap Pembanguna Wilayah
+title: Analisis Pengaruh Kemiskinan dan Rata Lama Sekolah Terhadap Pembangunan Wilayah
   di Indonesia
 output:
   beamer_presentation: default
@@ -72,3 +72,31 @@ Dataset yang digunakan dalam analisis ini adalah `pembangunan_wilayah_missing_ou
 12. air_bersih (Numeric):Persentase masyarakat yang memiliki akses terhadap air bersih.
 
 13. catatan_data (Character):Keterangan kondisi data, misalnya data normal, mengandung missing value, atau outlier.
+
+## *Missing Value*
+
+Missing value ditangani dengan metode median imputation
+\tiny
+```{r echo=TRUE, eval=FALSE}
+missing_value <- colSums(is.na(data))
+missing_value
+
+data <- data %>%
+  mutate(across(where(is.numeric), 
+                ~ ifelse(is.na(.), median(., na.rm = TRUE), .)))
+
+colSums(is.na(data))
+```
+
+## *Outlier*
+
+Semua data yang berada di luar batas (*whiskers*) dihapus dari dataset
+\tiny
+```{r echo=TRUE, eval=FALSE}
+# Contoh penanganan outlier pada variabel pdrb_perkapita
+iqr_pdrb <- IQR(data$pdrb_perkapita)
+batas_bawah <- quantile(data$pdrb_perkapita, 0.25) - (1.5 * iqr_pdrb)
+batas_atas <- quantile(data$pdrb_perkapita, 0.75) + (1.5 * iqr_pdrb)
+data <- data %>%
+  filter(pdrb_perkapita >= batas_bawah & pdrb_perkapita <= batas_atas)
+```
