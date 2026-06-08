@@ -12,8 +12,6 @@ dim(data)
 summary(data)
 sapply(data, class)
 
-options(scipen = 999)
-
 numerik <- data[sapply(data, is.numeric)]
 
 statistik_deskriptif <- data.frame(
