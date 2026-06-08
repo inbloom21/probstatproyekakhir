@@ -7,6 +7,11 @@ output: powerpoint_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r include=FALSE}
+data <- read.csv("../dataset/pembangunan_wilayah_missing_outlier.csv")
+```
+
+
 ## Latar belakang
 
 Pembangunan wilayah yang komprehensif tidak hanya diukur dari pertumbuhan infrastruktur fisik, tetapi juga dari peningkatkan taraf hidup dan kesejahteraan masyarakatnya. Salah satu indikator utama yang masih menjadi tantangan dalam pembangunan di berbagai wilayah di Indonesia adalah tingkat kemiskinan (Kuncoro 2010). Kemiskinan merupakan fenomena multidimensional yang dipengaruhi oleh berbagai faktor sosial dan ekonomi. Dalam pendekatan makroekonomi, kualitas sumber daya manusia dan ketersediaan lapangan pekerjaan dianggap sebagai dua pilar krusial yang dapat mengentaskan masyarakat dari garis kemiskinan.
@@ -24,6 +29,12 @@ Dalam pengolahan data riil terkait indikator-indikator tersebut, analis sering d
 - Bullet 1
 - Bullet 2
 - Bullet 3
+
+## Missing Values
+```{r data, echo=TRUE}
+summary(data)
+```
+
 
 ## Slide with R Output
 
