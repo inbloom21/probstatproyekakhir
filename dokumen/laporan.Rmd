@@ -193,7 +193,7 @@ Interpretasi: Berdasarkan hasil eksekusi grafik, terlihat bahwa garis merah empi
 
 Keselarasan Distribusi Menggunakan Q-Q Plot Untuk melakukan validasi secara lebih rigid apakah sebaran peluang variabel kemiskinan benar-benar adaptif terhadap model Distribusi Normal Gaussian, dilakukan pengujian visual menggunakan Quantile-Quantile Plot (Q-Q Plot).
 
-![](../gambar/Uji%20Normalitas%20Kemiskinan.png)
+![](images/Ujinormalisasi.png)
 
 Melalui grafik Q-Q Plot yang dieksekusi, sumbu plot memetakan sebaran kuartil data riil (Sample Quantiles) terhadap kuartil ideal teoretis (Theoretical Quantiles). Hasil visualisasi menunjukkan bahwa kumpulan titik koordinat data (lingkaran hitam) menyebar dengan merapat, konsisten, dan menempel langsung di sepanjang garis lurus diagonal berwarna merah (qqline). Walaupun dijumpai adanya sedikit kerenggangan minor pada ujung ekor distribusi (tails) yang mencerminkan sisa nilai batas atas maksimal 25.00%, secara keseluruhan pola visual ini sah memenuhi kriteria Distribusi Normal. Oleh karena itu, penerapan rumus peluang berbasis statistik parametrik pada data ini dapat dipertanggungjawabkan akurasinya.
 
