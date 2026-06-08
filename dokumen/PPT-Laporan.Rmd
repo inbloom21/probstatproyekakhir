@@ -3,7 +3,6 @@ title: Analisis Pengaruh Kemiskinan dan Rata Lama Sekolah Terhadap Pembangunan W
   di Indonesia
 output:
   beamer_presentation: default
-  powerpoint_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -14,64 +13,17 @@ knitr::opts_chunk$set(echo = FALSE)
 data <- read.csv("../dataset/pembangunan_wilayah_missing_outlier.csv")
 ```
 
-
 ## Latar belakang
 
-Pembangunan wilayah yang komprehensif tidak hanya diukur dari pertumbuhan infrastruktur fisik, tetapi juga dari peningkatkan taraf hidup dan kesejahteraan masyarakatnya. Salah satu indikator utama yang masih menjadi tantangan dalam pembangunan di berbagai wilayah di Indonesia adalah tingkat kemiskinan (Kuncoro 2010). Kemiskinan merupakan fenomena multidimensional yang dipengaruhi oleh berbagai faktor sosial dan ekonomi. Dalam pendekatan makroekonomi, kualitas sumber daya manusia dan ketersediaan lapangan pekerjaan dianggap sebagai dua pilar krusial yang dapat mengentaskan masyarakat dari garis kemiskinan.
-
-## Latar belakang
-
-Teori human capital atau modal manusia menegaskan bahwa pendidikan formal merupakan investasi jangka panjang yang berbanding lurus dengan peningkatan produktivitas dan kapabilitas ekonomi seseorang (Todaro dan Smith 2015). Hal ini direpresentasikan oleh indikator rata-rata lama sekolah. Logika statistiknya, semakin tinggi durasi pendidikan yang diselesaikan oleh penduduk di suatu wilayah, semakin besar peluang mereka untuk diserap oleh pasar kerja yang layak, sehingga tingkat kemiskinan dapat ditekan. Sebaliknya, ketidakmampuan pasar kerja dalam menyerap angkatan kerja akan memicu tingginya angka pengangguran terbuka. Tingkat pengangguran yang tinggi secara langsung memutus aliran pendapatan individu, yang pada akhirnya bermuara pada peningkatan persentase kemiskinan wilayah (Sukirno, 2011).
-
-## Latar belakang
-
-Dalam pengolahan data riil terkait indikator-indikator tersebut, analis sering dihadapkan pada masalah kualitas data, seperti adanya data yang hilang (missing value) atau nilai anomali yang ekstrem (outlier). Oleh karena itu, proyek ini disusun untuk melakukan analisis statistika secara komprehensif menggunakan bahasa pemrograman R. Evaluasi difokuskan pada penerapan statistika deskriptif, penanganan ketidaksempurnaan data, hingga pembuktian statistik mengenai korelasi antara rata-rata lama sekolah dan tingkat pengangguran terhadap persentase kemiskinan di berbagai wilayah.
+Kemiskinan merupakan salah satu indikator penting dalam menilai tingkat kesejahteraan masyarakat suatu wilayah. Faktor seperti rata-rata lama sekolah diduga memiliki hubungan dengan persentase kemiskinan. Oleh karena itu, penelitian ini bertujuan menganalisis hubungan kedua faktor tersebut terhadap tingkat kemiskinan menggunakan bahasa pemrograman R.
 
 ## Tujuan
 
-Tujuan dari analisis data pembangunan wilayah ini adalah sebagai berikut:
-1.  Memahami struktur dan karakteristik dataset.
-2.  Melakukan eksplorasi data menggunakan R.
-3.  Mengidentifikasi missing value dan outlier.
-4.  Melakukan statistika deskriptif.
-5.  Membuat visualisasi data yang informatif.
-6.  Menggunakan konsep probabilitas dan distribusi data.
-7.  Melakukan analisis hubungan antar variabel.
-8.  Menarik kesimpulan berbasis data.
-9.  Menyusun laporan ilmiah sederhana.
-10. Mengkomunikasikan hasil analisis secara sistematis.
+Analisis ini bertujuan memahami karakteristik data pembangunan wilayah melalui eksplorasi, statistika deskriptif, visualisasi data, identifikasi missing value dan outlier, serta analisis hubungan antar variabel untuk menghasilkan kesimpulan yang dapat dikomunikasikan secara sistematis dalam bentuk laporan ilmiah.
 
 ## Deskripsi Dataset
 
-Dataset yang digunakan dalam analisis ini adalah `pembangunan_wilayah_missing_outlier.csv`. Untuk menjawab tujuan pengamatan, analisis difokuskan pada dua variabel utama pengukur kualitas sumber daya manusia dan tenaga kerja, beserta variabel identitas wilayahnya. Berikut adalah rincian variabel yang digunakan:
-
-1.  wilayah (Character): Nama kabupaten/kota yang menjadi objek pengamatan.
-
-2.  provinsi (Character): Nama provinsi tempat wilayah berada.
-
-3.  tahun (Integer): Tahun pengamatan data pembangunan wilayah.
-
-## Deskripsi Dataset
-
-4.  pdrb_perkapita (Numeric): Produk Domestik Regional Bruto (PDRB) per kapita yang menggambarkan tingkat aktivitas ekonomi dan pendapatan rata-rata masyarakat suatu wilayah.
-
-5.  kemiskinan (Numeric): Persentase penduduk miskin pada suatu wilayah.
-
-6.  pengangguran (Numeric): Persentase tingkat pengangguran pada suatu wilayah.
-
-7.  ipm (Numeric): Indeks Pembangunan Manusia yang menggambarkan kualitas hidup masyarakat berdasarkan pendidikan, kesehatan, dan standar hidup.
-
-8.  harapan_hidup (Numeric): Rata-rata perkiraan umur yang dapat dicapai penduduk pada suatu wilayah.
-
-9.  rata_lama_sekolah (Numeric): Rata-rata jumlah tahun pendidikan formal yang telah ditempuh penduduk.
-
-10. akses_internet (Numeric):Persentase masyarakat yang memiliki atau menggunakan akses internet.
-
-11. jalan_baik (Numeric):Persentase kondisi jalan yang berada dalam kategori baik.
-
-12. air_bersih (Numeric):Persentase masyarakat yang memiliki akses terhadap air bersih.
-
-13. catatan_data (Character):Keterangan kondisi data, misalnya data normal, mengandung missing value, atau outlier.
+Dataset yang digunakan dalam analisis ini adalah *pembangunan_wilayah_missing_outlier.csv*, yang berisi informasi pembangunan wilayah pada tingkat kabupaten/kota di Indonesia. Variabel yang dianalisis mencakup identitas wilayah (wilayah, provinsi, dan tahun) serta berbagai indikator sosial-ekonomi, seperti PDRB per kapita, kemiskinan, pengangguran, IPM, harapan hidup, rata-rata lama sekolah, akses internet, kondisi jalan, dan akses air bersih. Selain itu, dataset juga memuat informasi kualitas data melalui variabel *catatan_data* yang menunjukkan keberadaan missing value atau outlier.
 
 ## *Missing Value*
 
@@ -100,3 +52,51 @@ batas_atas <- quantile(data$pdrb_perkapita, 0.75) + (1.5 * iqr_pdrb)
 data <- data %>%
   filter(pdrb_perkapita >= batas_bawah & pdrb_perkapita <= batas_atas)
 ```
+
+## Tools
+
+## Visualisasi
+
+![](images/BarPlotJumlahLaporanProvinsi.png)
+
+## Visualisasi
+
+![](images/BarPlotJumlahLaporanTahun.png)
+
+## Visualisasi
+
+![](images/visualisasi2.png)
+
+## Visualisasi
+
+![](images/visualisasi3.png)
+
+## Visualisasi
+
+![](images/visualisasi4.png)
+
+## Distribusi Data
+
+## Korelasi
+
+![](images/Korelasi1.PNG)
+
+## Korelasi
+
+![](images/Korelasi2.PNG)
+
+## Interpretasi
+
+Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata lama sekolah akan dibahas lebih lanjut dibagian interpretasi.
+
+H~0~ = 0 (Nilai korelasi antara kemiskinan dan rata lama sekolah tidak bernilai signifikan dari 0)
+
+H~1~ ≠ 0 (Nilai korelasi antara kemiskinan dan rata lama sekolah bernilai signifikan dari 0)
+
+Hasil analisis :
+
+Nilai p-value melebih dari nilai yang ditentukan yaitu 0.05 (5%) sehingga bisa dinyatakan bahwa kita gagal menolak pernyataan H~0.~ tidak terdapat cukup bukti untuk menyatakan adanya pengaruh signifikan antara variabel **kemiskinan** dengan **rata lama sekolah**.
+
+# 
+
+## Kesimpulan

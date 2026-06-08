@@ -14,12 +14,12 @@ output:
 
 ------------------------------------------------------------------------
 
-1. Aulia Rezki Rahman - J0403251009
-2. Ibra Arifa Istara - J0403251029
-3. Muhammad Raihan Ramadhan - J0403251038
-4. Ihsan Hamizan - J0403251051
-5. Ivan Farel Aditya - J0403251087
-6. Raffan Fatih Zulfan - J0403251091
+1.  Aulia Rezki Rahman - J0403251009
+2.  Ibra Arifa Istara - J0403251029
+3.  Muhammad Raihan Ramadhan - J0403251038
+4.  Ihsan Hamizan - J0403251051
+5.  Ivan Farel Aditya - J0403251087
+6.  Raffan Fatih Zulfan - J0403251091
 
 # BAB I PENDAHULUAN
 
@@ -223,11 +223,9 @@ Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata la
 
 ## 3.7 Interpretasi
 
-Penjelasan lebih lanjut mengenai korelasi antara variabel kemiskinan dan rata lama sekolah akan dibahas lebih lanjut dibagian interpretasi.
+H~0~ = 0 (Nilai korelasi antara kemiskinan dan rata lama sekolah tidak bernilai signifikan dari 0)
 
-H~0~ = 0
-
-H~1~ ≠ 0
+H~1~ ≠ 0 (Nilai korelasi antara kemiskinan dan rata lama sekolah bernilai signifikan dari 0)
 
 Hasil analisis :
 
@@ -583,7 +581,6 @@ cat("==================================================\n")
 
 ```
 
-
 # DAFTAR PUSTAKA
 
 ------------------------------------------------------------------------
@@ -601,3 +598,5 @@ Mankiw, N. G. 2018. Makroekonomi (Edisi ke-9). Penerbit Erlangga.
 Sukirno, S. 2011. Makroekonomi Teori Pengantar (Edisi ke-3). PT Raja Grafindo Persada.
 
 Todaro, M. P., & Smith, S. C. 2015. Pembangunan Ekonomi (Edisi ke-11). Penerbit Erlangga.
+
+Purnama YC. 2026. kenapa p-value Harus Dibawah 0.05?. 12(52):1-3.
