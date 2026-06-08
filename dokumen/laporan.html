@@ -11,7 +11,7 @@
 
 
 
-<title>laporan</title>
+<title>Analisis Pengaruh Kemiskinan dan Rata Lama Sekolah Terhadap Pembangunan Wilayah di Indonesia</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -348,11 +348,26 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">laporan</h1>
+<h1 class="title toc-ignore">Analisis Pengaruh Kemiskinan dan Rata Lama
+Sekolah Terhadap Pembangunan Wilayah di Indonesia</h1>
 
 </div>
 
 
+<p><strong>Teknologi Rekayasa Perangkat Lunak</strong><br />
+<strong>2025/2026</strong></p>
+<div id="kelompok-9" class="section level1">
+<h1>KELOMPOK 9</h1>
+<hr />
+<ol style="list-style-type: decimal">
+<li>Aulia Rezki Rahman - J0403251009</li>
+<li>Ibra Arifa Istara - J0403251029</li>
+<li>Muhammad Raihan Ramadhan - J0403251038</li>
+<li>Ihsan Hamizan - J0403251051</li>
+<li>Ivan Farel Aditya - J0403251087</li>
+<li>Raffan Fatih Zulfan - J0403251091</li>
+</ol>
+</div>
 <div id="bab-i-pendahuluan" class="section level1">
 <h1>BAB I PENDAHULUAN</h1>
 <hr />
@@ -757,22 +772,70 @@ pengaruh signifikan antara variabel <strong>kemiskinan</strong> dengan
 <div id="bab-iv-kesimpulan" class="section level1">
 <h1>BAB IV KESIMPULAN</h1>
 <hr />
-<p>Berdasarkan hasil analisis data pembangunan wilayah menggunakan R,
-diperoleh bahwa dataset mengandung missing value dan outlier yang perlu
-ditangani sebelum dilakukan analisis lebih lanjut. Missing value
-ditangani menggunakan metode median imputation, sedangkan outlier
-ditangani dengan menggunakan metode trimming. Hasil statistika
-deskriptif dan visualisasi menunjukkan adanya variasi kondisi
-pembangunan antarwilayah pada indikator ekonomi, pendidikan, dan
-kesejahteraan masyarakat.</p>
-<p>Analisis korelasi menunjukkan bahwa tingkat kemiskinan memiliki
-hubungan dengan faktor pendidikan dan pengangguran, meskipun kekuatan
-hubungannya tidak terlalu besar. Temuan ini mengindikasikan bahwa
-pembangunan wilayah dipengaruhi oleh berbagai faktor yang saling
-berkaitan, tidak hanya satu indikator tertentu. Oleh karena itu,
-peningkatan kualitas pendidikan, perluasan kesempatan kerja, serta
-pemerataan pembangunan menjadi aspek penting dalam mendukung pembangunan
-wilayah yang lebih baik dan berkelanjutan.</p>
+<div id="kesimpulan-utama" class="section level2">
+<h2>4.1 Kesimpulan Utama</h2>
+<p>Berdasarkan seluruh rangkaian analisis statistik yang telah dilakukan
+terhadap dataset pembangunan wilayah menggunakan bahasa pemrograman R,
+diperoleh bahwa dataset mengandung <em>missing value</em> dan
+<em>outlier</em> yang perlu ditangani sebelum analisis lebih lanjut
+dilakukan. <em>Missing value</em> ditangani menggunakan metode
+<em>median imputation</em> karena sifatnya yang tidak mudah terpengaruh
+oleh nilai ekstrem, sedangkan <em>outlier</em> dieliminasi melalui
+metode <em>trimming</em> berbasis <em>Interquartile Range</em> (IQR).
+Proses pembersihan data ini terbukti efektif, ditandai dengan penurunan
+nilai maksimum tingkat kemiskinan secara signifikan dari 67,53% menjadi
+25,00%.</p>
+<p>Hasil statistika deskriptif dan visualisasi data menunjukkan adanya
+variasi kondisi pembangunan yang cukup mencolok antarwilayah, terutama
+pada indikator ekonomi (PDRB per kapita) dan kesejahteraan (tingkat
+kemiskinan). Pengujian distribusi probabilitas pada variabel kemiskinan
+membuktikan bahwa setelah pembersihan data, sebaran tingkat kemiskinan
+mendekati distribusi normal, yang dikonfirmasi melalui grafik histogram
+densitas dan Q-Q Plot. Probabilitas empiris wilayah dengan tingkat
+kemiskinan di bawah 10% adalah sebesar 33,79%, sedangkan probabilitas
+teoretis berbasis distribusi normal Gaussian menghasilkan nilai yang
+berdekatan, yakni 29,10%.</p>
+<p>Hasil uji korelasi Pearson menggunakan fungsi cor.test() menunjukkan
+bahwa nilai p-value melebihi ambang batas signifikansi α = 0,05,
+sehingga H₀ gagal ditolak. Hal ini berarti tidak terdapat cukup bukti
+statistik untuk menyatakan adanya hubungan yang signifikan antara
+variabel kemiskinan dan rata-rata lama sekolah pada dataset ini.</p>
+</div>
+<div id="insight" class="section level2">
+<h2>4.2 Insight</h2>
+<p>Temuan analisis mengindikasikan bahwa pembangunan wilayah di
+Indonesia masih diwarnai oleh kesenjangan yang cukup nyata antara
+provinsi di Pulau Jawa dan wilayah luar Jawa. Selain itu, kehadiran
+<em>missing value</em> dan <em>outlier</em> dalam dataset mencerminkan
+kondisi pengumpulan data statistik di lapangan yang belum sepenuhnya
+sempurna, sehingga menegaskan bahwa tahapan data <em>pre-processing</em>
+merupakan langkah yang tidak dapat dilewati sebelum analisis lebih
+lanjut dilakukan.</p>
+<p>Meskipun uji korelasi antara kemiskinan dan rata-rata lama sekolah
+tidak menghasilkan signifikansi statistik, arah hubungannya tetap
+selaras dengan teori. Ketiadaan signifikansi ini kemungkinan dipengaruhi
+oleh ukuran sampel yang terbatas serta adanya faktor-faktor lain yang
+turut berperan seperti akses internet, kondisi infrastruktur, dan
+kualitas layanan kesehatan yang juga memengaruhi tingkat kemiskinan
+secara bersamaan. Hal ini memperkuat pemahaman bahwa kemiskinan
+merupakan fenomena yang dipengaruhi oleh banyak faktor sehingga tidak
+dapat dijelaskan hanya oleh satu indikator pembangunan.</p>
+</div>
+<div id="saran" class="section level2">
+<h2>4.3 Saran</h2>
+<p>Pemerintah daerah dan pemangku kebijakan disarankan untuk
+memprioritaskan investasi di sektor pendidikan, khususnya peningkatan
+rata-rata lama sekolah di wilayah yang masih berada di bawah rata-rata
+nasional. Secara bersamaan, pemerataan infrastruktur dasar, akses
+internet, dan layanan kesehatan di wilayah tertinggal perlu terus
+didorong sebagai upaya pendukung dalam mengurangi tingkat kemiskinan,
+mengingat pembangunan wilayah merupakan persoalan yang memerlukan
+kebijakan terpadu dari berbagai sektor.</p>
+<p>Untuk keperluan analisis lanjutan, uji regresi berganda (<em>multiple
+linear regression</em>) yang melibatkan seluruh variabel independen
+secara sekaligus sangat direkomendasikan guna memperoleh gambaran yang
+lebih lengkap mengenai faktor-faktor yang memengaruhi kemiskinan.</p>
+</div>
 </div>
 <div id="lampiran" class="section level1">
 <h1>LAMPIRAN</h1>
