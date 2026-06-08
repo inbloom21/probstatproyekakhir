@@ -1,5 +1,5 @@
 ---
-title: "Laporan"
+title: "Analisis Pengaruh Kemiskinan dan Rata Lama Sekolah Terhadap Pembanguna Wilayah di Indonesia"
 output: powerpoint_presentation
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "laporan"
+title: "Analisis Pengaruh Kemiskinan dan Rata Lama Sekolah Terhadap Pembanguna Wilayah di Indonesia"
 output:
   pdf_document: default
   html_document: default
@@ -76,8 +76,8 @@ Kedua variabel ini dipilih karena pendidikan dan kesejahteraan memiliki hubungan
 Dalam pengerjaan proyek ini, beberapa perangkat lunak dan platform yang digunakan antara lain:
 
 1.  R dan R Studio: Digunakan sebagai *environment* utama komputasi statistik. Modul yang dieksekusi mengandalkan *library* spesifik, yaitu:
-    - `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
-    - `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
+    -   `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
+    -   `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
 2.  GitHub: Digunakan sebagai repositori kolaborasi untuk mengontrol versi (*version control*) kode R dan dokumen laporan.
 
 ## 2.2 Metode Analisis
@@ -88,9 +88,9 @@ Analisis data dalam laporan ini dilakukan melalui serangkaian tahapan komputasi 
 
 2.  Pra-pemrosesan Data (*Data Pre-processing*) Dataset mentah sering kali memiliki ketidaksempurnaan, sehingga perlu dilakukan pembersihan data yang mencakup dua penanganan utama:
 
-    - Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
+    -   Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
 
-    - Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
+    -   Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
 
 3.  Visualisasi Data Eksplorasi visual dilakukan menggunakan pustaka `ggplot2` untuk melihat pola dan distribusi data secara lebih intuitif. Visualisasi yang dibuat meliputi *Bar chart* (untuk membandingkan jumlah laporan antar tahun dan provinsi), *Boxplot* (untuk melihat penyebaran Indeks Pembangunan Manusia), serta *Scatter plot* (untuk melihat sebaran awal hubungan antar variabel).
 
