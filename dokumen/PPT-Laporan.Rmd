@@ -64,11 +64,11 @@ Analisis statistika deskriptif dilakukan terhadap seluruh variabel numerik dalam
 
 ## Distribusi Data
 
-![](images/Uji Normalitas Kemiskinan.png)
+![](images/Uji%20Normalitas%20Kemiskinan.png)
 
 ## Distribusi Data
 
-![](images/Perbandingan Distribusi Peluang Kemiskinan.png)
+![](images/Perbandingan%20Distribusi%20Peluang%20Kemiskinan.png)
 
 ## Korelasi
 
