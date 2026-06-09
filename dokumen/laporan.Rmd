@@ -91,11 +91,11 @@ Kedua variabel ini dipilih karena pendidikan dan kesejahteraan memiliki hubungan
 Dalam pengerjaan proyek ini, beberapa perangkat lunak dan platform yang digunakan antara lain:
 
 1.  R dan R Studio: Digunakan sebagai *environment* utama komputasi statistik. Modul yang dieksekusi mengandalkan *library* spesifik, yaitu:
-    -   `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
-    -   `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
+    - `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
+    - `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
 2.  GitHub: Digunakan sebagai repositori kolaborasi untuk mengontrol versi (*version control*) kode R dan dokumen laporan.
 
-```{r echo=TRUE}
+```{r include=FALSE}
 library(dplyr)
 library(ggplot2)
 ```
@@ -108,9 +108,9 @@ Analisis data dalam laporan ini dilakukan melalui serangkaian tahapan komputasi 
 
 2.  Pra-pemrosesan Data (*Data Pre-processing*) Dataset mentah sering kali memiliki ketidaksempurnaan, sehingga perlu dilakukan pembersihan data yang mencakup dua penanganan utama:
 
-    -   Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
+    - Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
 
-    -   Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
+    - Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
 
 3.  Visualisasi Data Eksplorasi visual dilakukan menggunakan pustaka `ggplot2` untuk melihat pola dan distribusi data secara lebih intuitif. Visualisasi yang dibuat meliputi *Bar chart* (untuk membandingkan jumlah laporan antar tahun dan provinsi), *Boxplot* (untuk melihat penyebaran Indeks Pembangunan Manusia), serta *Scatter plot* (untuk melihat sebaran awal hubungan antar variabel).
 
@@ -182,11 +182,9 @@ colSums(is.na(data))
 
 ## 3.3 *Outlier*
 
-*Outlier* adalah nilai ekstrem yang secara tidak normal berada diluar pola distribusi keseluruhan suatu variabel (Kwak dan Kim 2017). Untuk menangani *outlier* tersebut, kami menggunakan metode *trimming*. *Trimming* adalah metode menghapus *outlier* dari dataset. Metode tersebut dipilih karena jumlah outlier tidak terlalu banyak, sehingga tidak akan terlalu memengaruhi dataset ketika *outlier* dipangkas
+*Outlier* adalah nilai ekstrem yang secara tidak normal berada diluar pola distribusi keseluruhan suatu variabel (Kwak dan Kim 2017). Untuk menangani *outlier* tersebut, kami menggunakan metode *trimming*. *Trimming* adalah metode menghapus *outlier* dari dataset. Metode tersebut dipilih karena jumlah outlier tidak terlalu banyak, sehingga tidak akan terlalu memengaruhi dataset ketika *outlier* dipangkas.
 
-Pada dataset yang kami teliti, terdapat total 15 *outlier* yang tersebar di beberapa variabel. Secara rinci, variabel pdrb_perkapita memiliki 5 *outlier*, variabel kemiskinan memiliki 5 *outlier*, dan variabel pengangguran memiliki 5 *outlier*. Semua data *outlier* tersebut dipangkas sehingga jumlah kolom pada dataset berkurang dari 2500 menjadi 2485.
-
-```{r echo=TRUE}
+```{r echo=FALSE, out.width="50%", fig.align='center'}
 boxplot(data$pdrb_perkapita,
         main = "Boxplot PDRB per Kapita",
         ylab = "Nilai",
@@ -201,7 +199,9 @@ boxplot(data$pengangguran,
         main = "Boxplot Pengangguran",
         ylab = "Nilai",
         col = "Red")
+```
 
+```{r include=FALSE}
 boxplot(data$ipm,
         main = "Boxplot IPM",
         ylab = "Nilai",
@@ -231,7 +231,12 @@ boxplot(data$air_bersih,
         main = "Boxplot Air Bersih",
         ylab = "Nilai",
         col = "Red")
+```
 
+Pada dataset yang kami teliti, terdapat total 15 *outlier* yang tersebar di beberapa variabel. Secara rinci, variabel pdrb_perkapita memiliki 5 *outlier*, variabel kemiskinan memiliki 5 *outlier*, dan variabel pengangguran memiliki 5 *outlier*. Semua data *outlier* tersebut dipangkas sehingga jumlah kolom pada dataset berkurang dari 2500 menjadi 2485.
+
+```{r message=FALSE}
+# Metode trimming
 iqr_pdrb <- IQR(data$pdrb_perkapita)
 batas_bawah <- quantile(data$pdrb_perkapita, 0.25) - (1.5 * iqr_pdrb)
 batas_atas <- quantile(data$pdrb_perkapita, 0.75) + (1.5 * iqr_pdrb)
@@ -707,7 +712,7 @@ cat("==================================================\n")
 
 Alam S, Ayub MS, Arora S, Khan MA. 2023. An investigation of the imputation techniques for missing values in ordinal data enhancing clustering and classification analysis validity. Decision Analytics Journal. 9:100341. <doi:10.1016/j.dajour.2023.100341>.
 
-Kaiser J. 2014. Dealing with Missing Values in Data. Journal of System Integration. 5(1)
+Kaiser J. 2014. Dealing with Missing Values in Data. Journal of System Integration. 5(1).
 
 Kuncoro, M. 2010. Ekonomi Pembangunan: Teori, Masalah, dan Kebijakan (Edisi ke-5). UPP STIM YKPN.
 
