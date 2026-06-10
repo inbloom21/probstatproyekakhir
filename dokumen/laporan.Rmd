@@ -91,8 +91,8 @@ Kedua variabel ini dipilih karena pendidikan dan kesejahteraan memiliki hubungan
 Dalam pengerjaan proyek ini, beberapa perangkat lunak dan platform yang digunakan antara lain:
 
 1.  R dan R Studio: Digunakan sebagai *environment* utama komputasi statistik. Modul yang dieksekusi mengandalkan *library* spesifik, yaitu:
-    - `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
-    - `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
+    -   `dplyr`: Untuk memanipulasi *dataframe* (*piping, filter, select, mutate*).
+    -   `ggplot2`: Untuk merender visualisasi grafis berlapis (*grammar of graphics*).
 2.  GitHub: Digunakan sebagai repositori kolaborasi untuk mengontrol versi (*version control*) kode R dan dokumen laporan.
 
 ```{r include=FALSE}
@@ -108,9 +108,9 @@ Analisis data dalam laporan ini dilakukan melalui serangkaian tahapan komputasi 
 
 2.  Pra-pemrosesan Data (*Data Pre-processing*) Dataset mentah sering kali memiliki ketidaksempurnaan, sehingga perlu dilakukan pembersihan data yang mencakup dua penanganan utama:
 
-    - Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
+    -   Penanganan *Missing Value*: Identifikasi data yang kosong (`NA`) dilakukan pada seluruh kolom. Penanganan dilakukan dengan metode imputasi median, di mana nilai yang hilang diisi dengan nilai tengah (median) dari masing-masing variabel menggunakan fungsi dari paket `dplyr`. Median dipilih karena sifatnya yang tangguh (*robust*) dan tidak mudah terpengaruh oleh nilai ekstrem.
 
-    - Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
+    -   Penanganan *Outlier*: Pendeteksian nilai ekstrem dilakukan menggunakan bantuan *Boxplot* dan metode *Interquartile Range* (IQR). Observasi yang berada di luar batas kewajaran—yaitu lebih kecil dari kuartil bawah dikurangi 1.5 IQR atau lebih besar dari kuartil atas ditambah 1.5 IQR—akan disaring (*filter*) agar tidak mengganggu keakuratan pemodelan selanjutnya.
 
 3.  Visualisasi Data Eksplorasi visual dilakukan menggunakan pustaka `ggplot2` untuk melihat pola dan distribusi data secara lebih intuitif. Visualisasi yang dibuat meliputi *Bar chart* (untuk membandingkan jumlah laporan antar tahun dan provinsi), *Boxplot* (untuk melihat penyebaran Indeks Pembangunan Manusia), serta *Scatter plot* (untuk melihat sebaran awal hubungan antar variabel).
 
@@ -128,7 +128,7 @@ Analisis statistika deskriptif dilakukan terhadap seluruh variabel numerik dalam
 
 Berdasarkan hasil analisis, variabel pdrb_perkapita memiliki nilai rata-rata (mean) tertinggi, yaitu sebesar 135.650.500. Hal ini menunjukkan bahwa nilai PDRB per kapita memiliki skala yang jauh lebih besar dibandingkan variabel numerik lainnya dalam dataset.
 
-Dilihat dari ukuran penyebaran data, variabel pdrb_perkapita juga memiliki standar deviasi terbesar, yaitu sekitar 89.341.270, dengan varians sebesar 7,98 × 10¹⁵. Nilai tersebut menunjukkan bahwa data PDRB per kapita memiliki variasi yang sangat besar antar wilayah yang diamati.
+Dilihat dari ukuran penyebaran data, variabel pdrb_perkapita juga memiliki standar deviasi terbesar, yaitu sekitar 89.341.270, dengan varians sebesar 7,98 × 10^15^. Nilai tersebut menunjukkan bahwa data PDRB per kapita memiliki variasi yang sangat besar antar wilayah yang diamati.
 
 Selain itu, terdapat indikasi bahwa distribusi data pdrb_perkapita tidak sepenuhnya normal. Hal ini terlihat dari rentang data yang sangat lebar, yaitu dari 15.031.581 hingga 1.774.545.000, serta adanya perbedaan yang cukup besar antara nilai minimum dan maksimum. Kondisi tersebut mengindikasikan kemungkinan adanya nilai ekstrem (outlier) yang menyebabkan distribusi data menjadi tidak simetris.
 
@@ -290,7 +290,7 @@ Semakin tinggi tingkat kemiskinan ternyata tidak terlalu mempengaruhi nilai rata
 
 ## 3.5 Distribusi Data
 
-Berdasarkan hasil pengolahan data akhir setelah melalui tahapan preprocessing, termasuk imputasi missing value dengan nilai median dan filtrasi data ekstrem menggunakan metode Interquartile Range, diperoleh parameter distribusi baru untuk variabel tingkat kemiskinan. Ruang sampel data kini dibatasi secara tegas oleh pagar pengaman dengan batas minimum sebesar 2,01% dan batas maksimum sebesar 25,00%. Dari dataset yang telah steril ini, didapatkan nilai rata-rata sebesar 13,64% dengan standar deviasi  sebesar 6.61%. Nilai standar deviasi yang relatif terkendali ini menunjukkan jarak sebaran data yang stabil di sekitar nilai pusatnya, yang menjadi fondasi penting dalam pembentukan kurva distribusi peluang kontinu.
+Berdasarkan hasil pengolahan data akhir setelah melalui tahapan preprocessing, termasuk imputasi missing value dengan nilai median dan filtrasi data ekstrem menggunakan metode Interquartile Range, diperoleh parameter distribusi baru untuk variabel tingkat kemiskinan. Ruang sampel data kini dibatasi secara tegas oleh pagar pengaman dengan batas minimum sebesar 2,01% dan batas maksimum sebesar 25,00%. Dari dataset yang telah steril ini, didapatkan nilai rata-rata sebesar 13,64% dengan standar deviasi sebesar 6.61%. Nilai standar deviasi yang relatif terkendali ini menunjukkan jarak sebaran data yang stabil di sekitar nilai pusatnya, yang menjadi fondasi penting dalam pembentukan kurva distribusi peluang kontinu.
 
 ![](images/Perbandingan%20Distribusi%20Peluang%20Kemiskinan-01.png)
 
@@ -302,7 +302,7 @@ Untuk memvalidasi asumsi normalitas secara lebih spesifik, dilakukan pengujian v
 
 Melalui grafik Q-Q Plot yang dieksekusi, sumbu plot memetakan sebaran kuartil data riil (Sample Quantiles) terhadap kuartil ideal teoretis (Theoretical Quantiles). Hasil visualisasi menunjukkan bahwa kumpulan titik koordinat data (lingkaran hitam) menyebar dengan merapat, konsisten, dan menempel langsung di sepanjang garis lurus diagonal berwarna merah (qqline). Walaupun dijumpai adanya sedikit kerenggangan minor pada ujung ekor distribusi (tails) yang mencerminkan sisa nilai batas atas maksimal 25.00%, secara keseluruhan pola visual ini sah memenuhi kriteria Distribusi Normal. Oleh karena itu, penerapan rumus peluang berbasis statistik parametrik pada data ini dapat dipertanggungjawabkan akurasinya.
 
-Adapun deviasi berupa kelengkungan mendatar yang membelot dari garis merah pada ujung kiri bawah dan ujung kanan atas kurva bukanlah sebuah cacat data, melainkan representasi visual dari efek pemotongan ekor distribusi. Pola mendatar ini terjadi karena data sampel asli pada sumbu Y dipaksa berhenti akibat menabrak tembok batas fisik hasil filter outlier, yaitu pada angka 2,01% di ujung bawah (area Z-score negatif yang merepresentasikan wilayah-wilayah di bawah rata-rata atau lebih sejahtera) dan angka 25,00% di ujung atas (area Z-score positif yang merepresentasikan wilayah di atas rata-rata). 
+Adapun deviasi berupa kelengkungan mendatar yang membelot dari garis merah pada ujung kiri bawah dan ujung kanan atas kurva bukanlah sebuah cacat data, melainkan representasi visual dari efek pemotongan ekor distribusi. Pola mendatar ini terjadi karena data sampel asli pada sumbu Y dipaksa berhenti akibat menabrak tembok batas fisik hasil filter outlier, yaitu pada angka 2,01% di ujung bawah (area Z-score negatif yang merepresentasikan wilayah-wilayah di bawah rata-rata atau lebih sejahtera) dan angka 25,00% di ujung atas (area Z-score positif yang merepresentasikan wilayah di atas rata-rata).
 
 Secara keseluruhan, meskipun terdapat pemangkasan mekanis di kedua ujung ekor kurva demi menjaga akurasi pemodelan, sebaran data kemiskinan ini dinilai sangat sehat, memiliki pola yang konsisten, dan sangat akurat untuk digunakan dalam perhitungan prediksi peluang kontinu menggunakan fungsi parametrik seperti pnorm maupun qnorm
 
